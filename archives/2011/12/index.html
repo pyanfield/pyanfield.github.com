@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2011/12 | This is pyanfield</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="This is pyanfield">
+<meta property="og:url" content="http://little.cool/archives/2011/12/">
+<meta property="og:site_name" content="This is pyanfield">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="This is pyanfield">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="This is pyanfield" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">This is pyanfield</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://little.cool"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/" class="article-date">
+  <time datetime="2011-12-19T07:44:49.000Z" itemprop="datePublished">Dec 19 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/">Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：</p>
+<pre><code><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span>
+
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;
+
+<span class="keyword">@end</span>
+</code></pre><p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
+<pre><code><span class="at_rule">@<span class="keyword">synthesize</span> newNoteViewController = _newNoteViewController</span>;
+</code></pre><p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
+<pre><code><span class="keyword">To</span> allow interoperation <span class="keyword">with</span> manual retain-release code, ARC imposes some constraints <span class="keyword">on</span> <span class="function"><span class="keyword">method</span> <span class="title">and</span> <span class="title">variable</span> <span class="title">naming</span>:</span>
+You cannot give a <span class="keyword">property</span> a name that begins <span class="keyword">with</span> <span class="keyword">new</span>.
+</code></pre><p>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://little.cool/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/" data-id="kldhmvatjsoej8hm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-arc-enforces-new-rules" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/12/19/arc-enforces-new-rules/" class="article-date">
+  <time datetime="2011-12-19T07:43:51.000Z" itemprop="datePublished">Dec 19 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/12/19/arc-enforces-new-rules/">arc enforces new rules</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iOS5中，引入了ARC的功能，具体概念如下：</p>
+<pre><code>Automatic Reference Counting (ARC) <span class="keyword">is</span> a compiler feature <span class="keyword">that</span> provides automatic memory management <span class="keyword">of</span> Objective-C objects. Rather than having <span class="keyword">to</span> think <span class="keyword">about</span> <span class="keyword">about</span> retain <span class="keyword">and</span> release operations, ARC allows you <span class="keyword">to</span> concentrate <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> interesting code, <span class="keyword">the</span> object graphs, <span class="keyword">and</span> <span class="keyword">the</span> relationships <span class="keyword">between</span> objects <span class="keyword">in</span> your <span class="type">application</span>.
+</code></pre><p>ARC主要就是为Objective-C提供了一种自动的内存管理功能。因为在以前的项目中，在内存管理方面，要认为的去做很多大量的重复性的工作。现在有了ARC之后，我们可以更好的专注自己的代码逻辑。一个新的功能的引入，必然会有一些新的规则出现，所以我们在使用ARC的时候要注意一下几点：</p>
+<pre><code>不用再去调用dealloc,retain,<span class="operator"><span class="keyword">release</span>,retainCount或者autorelease这些方法了。也就是说我们在代码中不需要这些了，是不是轻松很多啊。省去了代码中超级多的<span class="keyword">release</span>。
+不能使用NSAllocateObject和NSDeallocatedObject。
+不能在C structires中使用对象指针。
+There <span class="keyword">is</span> <span class="keyword">no</span> casual casting <span class="keyword">between</span> id <span class="keyword">and</span> void *.
+不能使用NSAutoreleasePool，取而代之的是@autoreleasepool，你可以在你生成代码的main.m文件中看到这一变化。
+不能使用memory zones，也就是说不在需要NSZone了。
+还有一点就是在属性声明的时候，属性的名字不能以new开头。 （如果使用了，那么产生的错误，可以参考 Property’s synthesized getter follows Cocoa naming convention <span class="keyword">for</span> returning ‘owned’ objects）.</span>
+</code></pre><p>以上内容取自<a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">ARC Enforces New Rules</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://little.cool/2011/12/19/arc-enforces-new-rules/" data-id="9ypxc6n9syd6hld1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-random-or-arc4random" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/12/12/random-or-arc4random/" class="article-date">
+  <time datetime="2011-12-12T07:43:03.000Z" itemprop="datePublished">Dec 12 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/12/12/random-or-arc4random/">random or arc4random</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果在你的程序中，要使用到随机数，可能第一反应就是使用random()。但是在今天我看了一段代码之后，里面用到的是arc4random()而不是random()。所以就查了一下到底两个之间有什么区别。</p>
+<p>不查不知道，一查才了解到，原来在随机数生成的选择上还是挺有讲究的。除了上面的arc4random() 和 random()之外，还有经常用到的rand().</p>
+<p>它们之间的区别，用Google找到了一些信息。可以参考下面的内容：<br><a href="http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random" target="_blank" rel="external">http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random</a><br><a href="http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random" target="_blank" rel="external">http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random</a><br><a href="http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html" target="_blank" rel="external">http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html</a></p>
+<p>其中的大体意思都是说arc4random()是产生随机数的首选方案，因为random()产生的是一个可预测的伪随机数，不适合用于安全要求高的情况下。而arc4random()是一个不太可预测的伪随机数，在用到安全性有要求的情况下，arc4random()要优于random()。而如果没有安全性要求的话，random()也是一个不错的选择。在上面提供的参考连接中还提到，rand()是标准C的一部分，而random()是POSIX的一部分，而arc4random()是只有BSD系统才提供的。所以在你要产生随机数的时候，一定要考虑好到底能不能用，和使用的环境是什么。在iPhone开发中，首推arc4random()来生成随机数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://little.cool/2011/12/12/random-or-arc4random/" data-id="d9t3hqor6lv79hyg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ios-ui-design-resource" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/12/02/ios-ui-design-resource/" class="article-date">
+  <time datetime="2011-12-02T07:42:02.000Z" itemprop="datePublished">Dec 2 2011</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/12/02/ios-ui-design-resource/">iOS UI Design resource</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在App store里面有很多的优秀应用，它们的设计都很赞，很多都值得我们去学习一下。多看看优秀的设计会激发我们更多的灵感，提高自己应用程序的UI设计水平，增强用户体验。</p>
+<p>以下是一些不错的专门收集应用程序UI截图的网站：</p>
+<ul>
+<li><a href="http://developer.apple.com/wwdc/ada/" target="_blank" rel="external">Apple Design Award</a></li>
+</ul>
+<p>For iPhone:</p>
+<ul>
+<li><p><a href="http://pttrns.com/" target="_blank" rel="external">pttrns</a></p>
+</li>
+<li><p><a href="http://mobile-patterns.com/" target="_blank" rel="external">Mobile UI Patterns</a></p>
+</li>
+<li><p><a href="http://www.tappgala.com/" target="_blank" rel="external">TappGala</a></p>
+</li>
+<li><p><a href="http://tapfancy.com/" target="_blank" rel="external">TapFancy</a></p>
+</li>
+</ul>
+<p>For iPad:</p>
+<ul>
+<li><a href="http://landingpad.org/" target="_blank" rel="external">Landing Pad</a></li>
+</ul>
+<p>For iPhone and iPad:</p>
+<ul>
+<li><p><a href="http://www.lovelyui.com/" target="_blank" rel="external">lovely ui</a></p>
+</li>
+<li><p><a href="http://iosinspires.me/" target="_blank" rel="external">iOS Inspires Me</a></p>
+</li>
+<li><p><a href="http://www.appsites.com/" target="_blank" rel="external">App Sites</a></p>
+</li>
+</ul>
+<p>还有一些个人博客收集了一下他们喜欢的UI设计:</p>
+<ul>
+<li><p><a href="http://buildingiphoneapps.posterous.com/" target="_blank" rel="external">Building iPhone Apps</a></p>
+</li>
+<li><p><a href="http://wellplacedpixels.com/" target="_blank" rel="external">Well-Placed Pixels</a></p>
+</li>
+<li><p><a href="http://beautifulpixels.com/" target="_blank" rel="external">Beautiful Pixels</a></p>
+</li>
+</ul>
+<p>好了如果你有什么好推荐，也可以留言，我会添加进来。<br>以上所有链接的地址都来自<a href="http://www.cocoanetics.com/2011/11/steal-good-stuff-ios-design-pattern-collections/" target="_blank" rel="external">http://www.cocoanetics.com/2011/11/steal-good-stuff-ios-design-pattern-collections/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://little.cool/2011/12/02/ios-ui-design-resource/" data-id="2j2niy1tnb17220r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/11/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/02/Constants_in_Objective-C/">Constnts in Objective-C</a>
+          </li>
+        
+          <li>
+            <a href="/2013/03/21/start-with-sencha-framework-with-ios/">start with sencha framework with ios</a>
+          </li>
+        
+          <li>
+            <a href="/2012/02/21/wspiechart-is-ok/">WSPieChart is ok</a>
+          </li>
+        
+          <li>
+            <a href="/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/">How to add CGPoint to NSMutableArray</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 pyanfield<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
