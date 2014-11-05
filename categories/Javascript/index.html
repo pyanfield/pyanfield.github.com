@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2013 | This is pyanfield</title>
+  <title>Category: Javascript | This is pyanfield</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="This is pyanfield">
-<meta property="og:url" content="http://little.cool/archives/2013/">
+<meta property="og:url" content="http://little.cool/categories/Javascript/">
 <meta property="og:site_name" content="This is pyanfield">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -68,61 +68,6 @@
 </header>
       <div class="outer">
         <section id="main">
-  
-    <article id="post-Constants_in_Objective-C" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/02/Constants_in_Objective-C/" class="article-date">
-  <time datetime="2013-12-02T07:42:02.000Z" itemprop="datePublished">Dec 2 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/02/Constants_in_Objective-C/">Constnts in Objective-C</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>定义一个全局的常量以便在 <code>Objective-C</code> 的项目中使用。可以通过创建一个头文件，比如 <code>Constants.h</code>，然后在头文件声明如下：</p>
-<pre><code>FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;
-FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;
-</code></pre><p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
-<pre><code><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;
-<span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;
-</code></pre><p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
-<p>注意这里使用的 <code>FOUNDATION_EXPORT</code> 因为，当你在 objective-c 中引入了 <code>Foundation Framework</code> 之后，你最好是用 <code>FOUNDATION_EXPORT</code> 来代替 <code>extern</code>, 因为在 <code>NSObjCRuntime.h</code> 中它包括了一些 C 和 C++ 的库，为了能更好的和这些 C 和 C++ 库兼容，所以建议用 <code>FOUNDATION_EXPORT</code>。</p>
-<p><a href="http://stackoverflow.com/questions/538996/constants-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/538996/constants-in-objective-c</a><br><a href="http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://little.cool/2013/12/02/Constants_in_Objective-C/" data-id="flmpk9zfrycyc8dy" class="article-share-link" data-share="baidu">Share</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
   
     <article id="post-start-with-sencha-framework-with-ios" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -189,6 +134,53 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sencha/">sencha</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jquery-fundamentals" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/11/14/jquery-fundamentals/" class="article-date">
+  <time datetime="2011-11-14T07:48:06.000Z" itemprop="datePublished">Nov 14 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/11/14/jquery-fundamentals/">jQuery Fundamentals</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I found a good web to learn basic of jQuery, maybe you know that, but I think it is really good.<br><a href="http://jqfundamentals.com/" target="_blank" rel="external"><code>jQuery Fundamentals::A guide to the basics of jQuery</code></a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://little.cool/2011/11/14/jquery-fundamentals/" data-id="pw7xj14flflw9zpp" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
 
     </footer>
   </div>

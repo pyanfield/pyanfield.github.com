@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2013 | This is pyanfield</title>
+  <title>Tag: opensource | This is pyanfield</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="This is pyanfield">
-<meta property="og:url" content="http://little.cool/archives/2013/">
+<meta property="og:url" content="http://little.cool/tags/opensource/">
 <meta property="og:site_name" content="This is pyanfield">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Constants_in_Objective-C" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-wspiechart-is-ok" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/12/02/Constants_in_Objective-C/" class="article-date">
-  <time datetime="2013-12-02T07:42:02.000Z" itemprop="datePublished">Dec 2 2013</time>
+    <a href="/2012/02/21/wspiechart-is-ok/" class="article-date">
+  <time datetime="2012-02-21T07:47:20.000Z" itemprop="datePublished">Feb 21 2012</time>
 </a>
     
   <div class="article-category">
@@ -87,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/02/Constants_in_Objective-C/">Constnts in Objective-C</a>
+      <a class="article-title" href="/2012/02/21/wspiechart-is-ok/">WSPieChart is ok</a>
     </h1>
   
 
@@ -95,100 +95,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>定义一个全局的常量以便在 <code>Objective-C</code> 的项目中使用。可以通过创建一个头文件，比如 <code>Constants.h</code>，然后在头文件声明如下：</p>
-<pre><code>FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;
-FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;
-</code></pre><p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
-<pre><code><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;
-<span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;
-</code></pre><p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
-<p>注意这里使用的 <code>FOUNDATION_EXPORT</code> 因为，当你在 objective-c 中引入了 <code>Foundation Framework</code> 之后，你最好是用 <code>FOUNDATION_EXPORT</code> 来代替 <code>extern</code>, 因为在 <code>NSObjCRuntime.h</code> 中它包括了一些 C 和 C++ 的库，为了能更好的和这些 C 和 C++ 库兼容，所以建议用 <code>FOUNDATION_EXPORT</code>。</p>
-<p><a href="http://stackoverflow.com/questions/538996/constants-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/538996/constants-in-objective-c</a><br><a href="http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1</a></p>
+        <p>At present, pie chart is ok.There are two classes for pie chart, one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a>, another one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.</p>
+<h3 id="The_difference_between_WSPieChartView_and_WSPieChartWithMotion_are_below:">The difference between WSPieChartView and WSPieChartWithMotion are below:</h3>
+<ul>
+<li>Drawing the pie sector on the UIView in <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a>. But in the <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a> is CALayer. Extracted drawn content to different part.</li>
+<li>Adding open and close animation on <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.So when you press the pie, you can find it open smoothly. But <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a> doesn’t have this function.</li>
+<li>Adding transformation on the pie when update the datas. This is only support on <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.</li>
+<li>Removing the indicator from <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>. Maybe I will add it later.</li>
+</ul>
+<h3 id="Key_points_when_you_use_WSPieChartWithMotion:">Key points when you use WSPieChartWithMotion:</h3>
+<ul>
+<li>Carefully using the shadow. Because it will create shadow on both view and layers.Detail information you can find on the comments of class.</li>
+<li>Switching data. The datas must have same titles. But they can be different order.<br>The codes are just tested on simulator, not on device.</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://little.cool/2013/12/02/Constants_in_Objective-C/" data-id="flmpk9zfrycyc8dy" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://little.cool/2012/02/21/wspiechart-is-ok/" data-id="xfwos1dl47ga5s9z" class="article-share-link" data-share="baidu">Share</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-start-with-sencha-framework-with-ios" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/03/21/start-with-sencha-framework-with-ios/" class="article-date">
-  <time datetime="2013-03-21T07:49:04.000Z" itemprop="datePublished">Mar 21 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/21/start-with-sencha-framework-with-ios/">start with sencha framework with ios</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近准备在一个简单的ios项目中使用HTML5 去开发，最终选择尝试一下 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a>。今天在这里记录一下简单的搭建步骤。</p>
-<p>首先是安装 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a></p>
-<ul>
-<li>确保自己的机器已经有了JRE环境，如果没有，安装一个.</li>
-<li><p>下载并且安装 <a href="http://compass-style.org/install/" target="_blank" rel="external">Compass</a>.</p>
-<pre><code>  Compass 需要你的电脑运行有 Ruby 的环境，所以你应该想安装 Ruby,至于怎么安装，这里省略100字。
-  但是对于怎么安装 Compass ，可以使用下面的命令：
-  -<span class="ruby"> gem update --system
-</span>  -<span class="ruby"> gem install compass</span>
-</code></pre></li>
-<li><p>然后就要安装 <a href="http://www.sencha.com/products/sencha-cmd/download" target="_blank" rel="external">Sencha Cmd</a>.</p>
-</li>
-<li>下载 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch SDK</a> 或者 <a href="http://www.sencha.com/products/extjs/" target="_blank" rel="external">Sencha Ext JS</a>.</li>
-<li>好了最后就是解压你下载的 SDK.</li>
-<li>这个时候你可以使用 <code>sencha help</code> 命令去试验一下是否安装成功。如果成功了，那祝贺你，可以进行下面的步骤了。</li>
-</ul>
-<p>生成一个 iOS 的程序：</p>
-<ul>
-<li><code>cd &lt;your sencha touch directory&gt;</code></li>
-<li><code>sencha generate app &lt;myapp&gt; &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>cd &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>sencha app build native</code> 因为这里我们是需要build一个ios程序，所以这里选择使用<code>native</code></li>
-<li><code>sencha app package run packager.json</code> 这个步骤是将你build好的应用程序用本地的模拟器打开.</li>
-</ul>
-<p>不过在这里我遇到了一个问题，就是使用<code>sencha generate app</code>命令自动生成的应用程序，在我的iphone 5的模拟器里卖弄打开的时候，上下是有黑边的。其实这是 sencha 的一个bug.不过网上也有人给出了一个临时的<a href="http://www.sencha.com/forum/showthread.php?251157-Letter-Boxed-App-on-iphone-5" target="_blank" rel="external">解决方案</a>。</p>
-<pre><code>其实这个也可以说是 ios 的一个bug,你如果做过<span class="keyword">native</span>的应用程序应该知道，在我们将以前的iphone4上的程序转到iphone5上的时候是有同样的问题的，那时候我们是讲一个名字为 <span class="keyword">Default</span>-<span class="number">568</span>h@<span class="number">2</span>x.png的图片放在项目目录下面，当然这个图片的大小应该是<span class="number">640</span>*<span class="number">1136</span>.而在这里呢我们也需要一个这样的图片，我们需要讲这个图片放在我们项目&lt;myapp&gt;<span class="regexp">/resources/</span>startup下面，因为在我们build的时候，这些文件会被自动拷贝到 &lt;myapp&gt;<span class="regexp">/webapp/</span>resources<span class="regexp">/startup路径下面，然后在我们的项目文件夹下的 packager.json 里添加一行 "rawConfig":"&lt;key&gt;UILaunchImageFile&lt;/</span>key&gt;&lt;string&gt;webapp<span class="regexp">/resources/</span>startup<span class="regexp">/Default-568h@2x.png&lt;/</span>string&gt;<span class="string">"`.</span>
-</code></pre><p>好了，Sencha之旅的第一步还算顺利吧。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://little.cool/2013/03/21/start-with-sencha-framework-with-ios/" data-id="ptj51ucl413yu77s" class="article-share-link" data-share="baidu">Share</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sencha/">sencha</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opensource/">opensource</a></li></ul>
 
     </footer>
   </div>

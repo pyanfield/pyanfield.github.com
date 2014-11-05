@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2013 | This is pyanfield</title>
+  <title>Tag: Objective-C | This is pyanfield</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="This is pyanfield">
-<meta property="og:url" content="http://little.cool/archives/2013/">
+<meta property="og:url" content="http://little.cool/tags/Objective-C/">
 <meta property="og:site_name" content="This is pyanfield">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -124,14 +124,14 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
 
 
   
-    <article id="post-start-with-sencha-framework-with-ios" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-how-to-add-cgpoint-to-nsmutablearray" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/03/21/start-with-sencha-framework-with-ios/" class="article-date">
-  <time datetime="2013-03-21T07:49:04.000Z" itemprop="datePublished">Mar 21 2013</time>
+    <a href="/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/" class="article-date">
+  <time datetime="2012-02-01T07:46:26.000Z" itemprop="datePublished">Feb 1 2012</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
   </div>
 
   </div>
@@ -142,7 +142,7 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/21/start-with-sencha-framework-with-ios/">start with sencha framework with ios</a>
+      <a class="article-title" href="/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/">How to add CGPoint to NSMutableArray</a>
     </h1>
   
 
@@ -150,45 +150,132 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近准备在一个简单的ios项目中使用HTML5 去开发，最终选择尝试一下 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a>。今天在这里记录一下简单的搭建步骤。</p>
-<p>首先是安装 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a></p>
-<ul>
-<li>确保自己的机器已经有了JRE环境，如果没有，安装一个.</li>
-<li><p>下载并且安装 <a href="http://compass-style.org/install/" target="_blank" rel="external">Compass</a>.</p>
-<pre><code>  Compass 需要你的电脑运行有 Ruby 的环境，所以你应该想安装 Ruby,至于怎么安装，这里省略100字。
-  但是对于怎么安装 Compass ，可以使用下面的命令：
-  -<span class="ruby"> gem update --system
-</span>  -<span class="ruby"> gem install compass</span>
-</code></pre></li>
-<li><p>然后就要安装 <a href="http://www.sencha.com/products/sencha-cmd/download" target="_blank" rel="external">Sencha Cmd</a>.</p>
-</li>
-<li>下载 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch SDK</a> 或者 <a href="http://www.sencha.com/products/extjs/" target="_blank" rel="external">Sencha Ext JS</a>.</li>
-<li>好了最后就是解压你下载的 SDK.</li>
-<li>这个时候你可以使用 <code>sencha help</code> 命令去试验一下是否安装成功。如果成功了，那祝贺你，可以进行下面的步骤了。</li>
-</ul>
-<p>生成一个 iOS 的程序：</p>
-<ul>
-<li><code>cd &lt;your sencha touch directory&gt;</code></li>
-<li><code>sencha generate app &lt;myapp&gt; &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>cd &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>sencha app build native</code> 因为这里我们是需要build一个ios程序，所以这里选择使用<code>native</code></li>
-<li><code>sencha app package run packager.json</code> 这个步骤是将你build好的应用程序用本地的模拟器打开.</li>
-</ul>
-<p>不过在这里我遇到了一个问题，就是使用<code>sencha generate app</code>命令自动生成的应用程序，在我的iphone 5的模拟器里卖弄打开的时候，上下是有黑边的。其实这是 sencha 的一个bug.不过网上也有人给出了一个临时的<a href="http://www.sencha.com/forum/showthread.php?251157-Letter-Boxed-App-on-iphone-5" target="_blank" rel="external">解决方案</a>。</p>
-<pre><code>其实这个也可以说是 ios 的一个bug,你如果做过<span class="keyword">native</span>的应用程序应该知道，在我们将以前的iphone4上的程序转到iphone5上的时候是有同样的问题的，那时候我们是讲一个名字为 <span class="keyword">Default</span>-<span class="number">568</span>h@<span class="number">2</span>x.png的图片放在项目目录下面，当然这个图片的大小应该是<span class="number">640</span>*<span class="number">1136</span>.而在这里呢我们也需要一个这样的图片，我们需要讲这个图片放在我们项目&lt;myapp&gt;<span class="regexp">/resources/</span>startup下面，因为在我们build的时候，这些文件会被自动拷贝到 &lt;myapp&gt;<span class="regexp">/webapp/</span>resources<span class="regexp">/startup路径下面，然后在我们的项目文件夹下的 packager.json 里添加一行 "rawConfig":"&lt;key&gt;UILaunchImageFile&lt;/</span>key&gt;&lt;string&gt;webapp<span class="regexp">/resources/</span>startup<span class="regexp">/Default-568h@2x.png&lt;/</span>string&gt;<span class="string">"`.</span>
-</code></pre><p>好了，Sencha之旅的第一步还算顺利吧。</p>
+        <p>CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.<br>But you can use NSValue to convert it to object. like this:</p>
+<pre><code><span class="constant">CGPoint point</span> = CGPointMake(<span class="number">0.0</span>,<span class="number">0.0</span>);
+<span class="constant">NSValue *pointValue</span> = [NSValue valueWithCGPoint:point];
+[nsarray addObject:pointValue];
+</code></pre><p>It is very simple to get this value .</p>
+<pre><code><span class="attribute">CGPoint point </span>=<span class="string"> [[nsarray objectAtIndex:i] CGPointValue];</span>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://little.cool/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/" data-id="ydaokqea8vee3fu5" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/" class="article-date">
+  <time datetime="2011-12-19T07:44:49.000Z" itemprop="datePublished">Dec 19 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/">Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：</p>
+<pre><code><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span>
+
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;
+
+<span class="keyword">@end</span>
+</code></pre><p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
+<pre><code><span class="at_rule">@<span class="keyword">synthesize</span> newNoteViewController = _newNoteViewController</span>;
+</code></pre><p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
+<pre><code><span class="keyword">To</span> allow interoperation <span class="keyword">with</span> manual retain-release code, ARC imposes some constraints <span class="keyword">on</span> <span class="function"><span class="keyword">method</span> <span class="title">and</span> <span class="title">variable</span> <span class="title">naming</span>:</span>
+You cannot give a <span class="keyword">property</span> a name that begins <span class="keyword">with</span> <span class="keyword">new</span>.
+</code></pre><p>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://little.cool/2013/03/21/start-with-sencha-framework-with-ios/" data-id="ptj51ucl413yu77s" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://little.cool/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/" data-id="x97c0bg381f73jwn" class="article-share-link" data-share="baidu">Share</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sencha/">sencha</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARC/">ARC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-random-or-arc4random" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/12/12/random-or-arc4random/" class="article-date">
+  <time datetime="2011-12-12T07:43:03.000Z" itemprop="datePublished">Dec 12 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/12/12/random-or-arc4random/">random or arc4random</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果在你的程序中，要使用到随机数，可能第一反应就是使用random()。但是在今天我看了一段代码之后，里面用到的是arc4random()而不是random()。所以就查了一下到底两个之间有什么区别。</p>
+<p>不查不知道，一查才了解到，原来在随机数生成的选择上还是挺有讲究的。除了上面的arc4random() 和 random()之外，还有经常用到的rand().</p>
+<p>它们之间的区别，用Google找到了一些信息。可以参考下面的内容：<br><a href="http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random" target="_blank" rel="external">http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random</a><br><a href="http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random" target="_blank" rel="external">http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random</a><br><a href="http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html" target="_blank" rel="external">http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html</a></p>
+<p>其中的大体意思都是说arc4random()是产生随机数的首选方案，因为random()产生的是一个可预测的伪随机数，不适合用于安全要求高的情况下。而arc4random()是一个不太可预测的伪随机数，在用到安全性有要求的情况下，arc4random()要优于random()。而如果没有安全性要求的话，random()也是一个不错的选择。在上面提供的参考连接中还提到，rand()是标准C的一部分，而random()是POSIX的一部分，而arc4random()是只有BSD系统才提供的。所以在你要产生随机数的时候，一定要考虑好到底能不能用，和使用的环境是什么。在iPhone开发中，首推arc4random()来生成随机数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://little.cool/2011/12/12/random-or-arc4random/" data-id="xphcgumf2lq3oe9s" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
 
     </footer>
   </div>

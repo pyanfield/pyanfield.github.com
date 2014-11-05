@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2013 | This is pyanfield</title>
+  <title>Tag: github | This is pyanfield</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="This is pyanfield">
-<meta property="og:url" content="http://little.cool/archives/2013/">
+<meta property="og:url" content="http://little.cool/tags/github/">
 <meta property="og:site_name" content="This is pyanfield">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -69,14 +69,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Constants_in_Objective-C" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-github-vs-bitbucket" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/12/02/Constants_in_Objective-C/" class="article-date">
-  <time datetime="2013-12-02T07:42:02.000Z" itemprop="datePublished">Dec 2 2013</time>
+    <a href="/2011/01/14/github-vs-bitbucket/" class="article-date">
+  <time datetime="2011-01-14T07:38:47.000Z" itemprop="datePublished">Jan 14 2011</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    <a class="article-category-link" href="/categories/Tools/">Tools</a>
   </div>
 
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/02/Constants_in_Objective-C/">Constnts in Objective-C</a>
+      <a class="article-title" href="/2011/01/14/github-vs-bitbucket/">Github vs Bitbucket</a>
     </h1>
   
 
@@ -95,100 +95,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>定义一个全局的常量以便在 <code>Objective-C</code> 的项目中使用。可以通过创建一个头文件，比如 <code>Constants.h</code>，然后在头文件声明如下：</p>
-<pre><code>FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;
-FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;
-</code></pre><p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
-<pre><code><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;
-<span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;
-</code></pre><p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
-<p>注意这里使用的 <code>FOUNDATION_EXPORT</code> 因为，当你在 objective-c 中引入了 <code>Foundation Framework</code> 之后，你最好是用 <code>FOUNDATION_EXPORT</code> 来代替 <code>extern</code>, 因为在 <code>NSObjCRuntime.h</code> 中它包括了一些 C 和 C++ 的库，为了能更好的和这些 C 和 C++ 库兼容，所以建议用 <code>FOUNDATION_EXPORT</code>。</p>
-<p><a href="http://stackoverflow.com/questions/538996/constants-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/538996/constants-in-objective-c</a><br><a href="http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1</a></p>
+        <p>现在网上有很多代码托管网站，其中比较著名的有github, bitbucket和google code.但是就我现在个人的使用来看，我比较偏爱github 和 bitbucket. 所以不免将它们拿来比较一下，看看那个更适合自己。</p>
+<p>在支持的版本控制工具上： github目前只支持git一种，而bitbucket现在则除了支持git之外，还Mercurial (hg)。这两个工具都很多教程，并且你如果会使用git的话，那么hg你也会很快上手，反之亦然，它们很多的命令都通用。并且他们的原理相同。但是在python开发人员中，似乎大家比较偏爱hg,因为hg就是用python来开发的。不过我个人倒是比较喜欢git，也许是最开始就是从git学起的吧。并且git作为Xcode内置的版本控制工具，在使用Xcode开发项目的时候，非常好用。如果有兴趣可以看一些WWDC 2011的一个视频 – Mastering Source Control in Xcode 4. 此外在GUI的版本控制软件上，我推荐Source Tree,即支持git又支持mercurial。</p>
+<p>在网站的界面方面：github给人的感觉更加的干净整齐，看上去很舒服，而bitbucket则要差一点，至少给我的体验是这样的。</p>
+<p>在私有和公有项目方面：github对于免费用户来说只支持公开的项目，不支持私有项目，如果需要私有项目，需要升级到付费的用户。并且对于免费的个人用户来讲，现在的代码托管空间是0.3G，不过我想对于一般用户来说应该已经足够了。bitbucket在这方面则要大方的多，你可以使用bitbucket任意的创建自己的私有或者公有代码仓库，并且不限制大小。所以对于你不想公开的代码来讲，bitbucket是首选。</p>
+<p>其他方面：个人认为在代码的显示方面，github要好于bitbucket. github上的代码高亮显示优于bitbucket，并且你能在github上面编辑自己的代码，但是在bitbucket上面则做不到。</p>
+<p>总结：就个人感觉来说，我更喜欢使用github,因为我觉得很舒服，并且速度快（可能和我的网络有关系）。而bitbucket在支持私有项目方面又让我相当难以割舍。所以具体到你要选择哪个，完全取决于你的权衡了。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://little.cool/2013/12/02/Constants_in_Objective-C/" data-id="flmpk9zfrycyc8dy" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://little.cool/2011/01/14/github-vs-bitbucket/" data-id="2zshv8i5i8v4ohfd" class="article-share-link" data-share="baidu">Share</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-start-with-sencha-framework-with-ios" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/03/21/start-with-sencha-framework-with-ios/" class="article-date">
-  <time datetime="2013-03-21T07:49:04.000Z" itemprop="datePublished">Mar 21 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/21/start-with-sencha-framework-with-ios/">start with sencha framework with ios</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近准备在一个简单的ios项目中使用HTML5 去开发，最终选择尝试一下 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a>。今天在这里记录一下简单的搭建步骤。</p>
-<p>首先是安装 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a></p>
-<ul>
-<li>确保自己的机器已经有了JRE环境，如果没有，安装一个.</li>
-<li><p>下载并且安装 <a href="http://compass-style.org/install/" target="_blank" rel="external">Compass</a>.</p>
-<pre><code>  Compass 需要你的电脑运行有 Ruby 的环境，所以你应该想安装 Ruby,至于怎么安装，这里省略100字。
-  但是对于怎么安装 Compass ，可以使用下面的命令：
-  -<span class="ruby"> gem update --system
-</span>  -<span class="ruby"> gem install compass</span>
-</code></pre></li>
-<li><p>然后就要安装 <a href="http://www.sencha.com/products/sencha-cmd/download" target="_blank" rel="external">Sencha Cmd</a>.</p>
-</li>
-<li>下载 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch SDK</a> 或者 <a href="http://www.sencha.com/products/extjs/" target="_blank" rel="external">Sencha Ext JS</a>.</li>
-<li>好了最后就是解压你下载的 SDK.</li>
-<li>这个时候你可以使用 <code>sencha help</code> 命令去试验一下是否安装成功。如果成功了，那祝贺你，可以进行下面的步骤了。</li>
-</ul>
-<p>生成一个 iOS 的程序：</p>
-<ul>
-<li><code>cd &lt;your sencha touch directory&gt;</code></li>
-<li><code>sencha generate app &lt;myapp&gt; &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>cd &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>sencha app build native</code> 因为这里我们是需要build一个ios程序，所以这里选择使用<code>native</code></li>
-<li><code>sencha app package run packager.json</code> 这个步骤是将你build好的应用程序用本地的模拟器打开.</li>
-</ul>
-<p>不过在这里我遇到了一个问题，就是使用<code>sencha generate app</code>命令自动生成的应用程序，在我的iphone 5的模拟器里卖弄打开的时候，上下是有黑边的。其实这是 sencha 的一个bug.不过网上也有人给出了一个临时的<a href="http://www.sencha.com/forum/showthread.php?251157-Letter-Boxed-App-on-iphone-5" target="_blank" rel="external">解决方案</a>。</p>
-<pre><code>其实这个也可以说是 ios 的一个bug,你如果做过<span class="keyword">native</span>的应用程序应该知道，在我们将以前的iphone4上的程序转到iphone5上的时候是有同样的问题的，那时候我们是讲一个名字为 <span class="keyword">Default</span>-<span class="number">568</span>h@<span class="number">2</span>x.png的图片放在项目目录下面，当然这个图片的大小应该是<span class="number">640</span>*<span class="number">1136</span>.而在这里呢我们也需要一个这样的图片，我们需要讲这个图片放在我们项目&lt;myapp&gt;<span class="regexp">/resources/</span>startup下面，因为在我们build的时候，这些文件会被自动拷贝到 &lt;myapp&gt;<span class="regexp">/webapp/</span>resources<span class="regexp">/startup路径下面，然后在我们的项目文件夹下的 packager.json 里添加一行 "rawConfig":"&lt;key&gt;UILaunchImageFile&lt;/</span>key&gt;&lt;string&gt;webapp<span class="regexp">/resources/</span>startup<span class="regexp">/Default-568h@2x.png&lt;/</span>string&gt;<span class="string">"`.</span>
-</code></pre><p>好了，Sencha之旅的第一步还算顺利吧。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://little.cool/2013/03/21/start-with-sencha-framework-with-ios/" data-id="ptj51ucl413yu77s" class="article-share-link" data-share="baidu">Share</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sencha/">sencha</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
 
     </footer>
   </div>
