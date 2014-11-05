@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://little.cool/"/>
-  <updated>2014-11-05T10:08:46.833Z</updated>
+  <updated>2014-11-05T10:29:04.292Z</updated>
   <id>http://little.cool/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://little.cool/2013/12/02/Constants_in_Objective-C/"/>
     <id>http://little.cool/2013/12/02/Constants_in_Objective-C/</id>
     <published>2013-12-02T07:42:02.000Z</published>
-    <updated>2014-11-05T09:08:33.000Z</updated>
+    <updated>2014-11-05T10:15:50.000Z</updated>
     <content type="html"><![CDATA[<p>定义一个全局的常量以便在 <code>Objective-C</code> 的项目中使用。可以通过创建一个头文件，比如 <code>Constants.h</code>，然后在头文件声明如下：</p>
 <pre><code>FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;
 FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;
@@ -90,7 +90,7 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
     <link href="http://little.cool/2012/02/21/wspiechart-is-ok/"/>
     <id>http://little.cool/2012/02/21/wspiechart-is-ok/</id>
     <published>2012-02-21T07:47:20.000Z</published>
-    <updated>2014-11-05T09:12:58.000Z</updated>
+    <updated>2014-11-05T10:16:01.000Z</updated>
     <content type="html"><![CDATA[<p>At present, pie chart is ok.There are two classes for pie chart, one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a>, another one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.</p>
 <h3 id="The_difference_between_WSPieChartView_and_WSPieChartWithMotion_are_below:">The difference between WSPieChartView and WSPieChartWithMotion are below:</h3>
 <ul>
@@ -120,7 +120,7 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
     <link href="http://little.cool/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/"/>
     <id>http://little.cool/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/</id>
     <published>2012-02-01T07:46:26.000Z</published>
-    <updated>2014-11-05T09:09:33.000Z</updated>
+    <updated>2014-11-05T10:15:57.000Z</updated>
     <content type="html"><![CDATA[<p>CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.<br>But you can use NSValue to convert it to object. like this:</p>
 <pre><code><span class="constant">CGPoint point</span> = CGPointMake(<span class="number">0.0</span>,<span class="number">0.0</span>);
 <span class="constant">NSValue *pointValue</span> = [NSValue valueWithCGPoint:point];
@@ -143,7 +143,7 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
     <link href="http://little.cool/2011/12/19/property%E2%80%99s-synthesized-getter-follows-cocoa-naming-convention-for-returning-%E2%80%98owned%E2%80%99-objects/"/>
     <id>http://little.cool/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/</id>
     <published>2011-12-19T07:44:49.000Z</published>
-    <updated>2014-11-05T09:11:23.000Z</updated>
+    <updated>2014-11-05T10:15:58.000Z</updated>
     <content type="html"><![CDATA[<p>今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：</p>
 <pre><code><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span>
 
@@ -205,7 +205,7 @@ There <span class="keyword">is</span> <span class="keyword">no</span> casual cas
     <link href="http://little.cool/2011/12/12/random-or-arc4random/"/>
     <id>http://little.cool/2011/12/12/random-or-arc4random/</id>
     <published>2011-12-12T07:43:03.000Z</published>
-    <updated>2014-11-05T09:11:54.000Z</updated>
+    <updated>2014-11-05T10:15:59.000Z</updated>
     <content type="html"><![CDATA[<p>如果在你的程序中，要使用到随机数，可能第一反应就是使用random()。但是在今天我看了一段代码之后，里面用到的是arc4random()而不是random()。所以就查了一下到底两个之间有什么区别。</p>
 <p>不查不知道，一查才了解到，原来在随机数生成的选择上还是挺有讲究的。除了上面的arc4random() 和 random()之外，还有经常用到的rand().</p>
 <p>它们之间的区别，用Google找到了一些信息。可以参考下面的内容：<br><a href="http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random" target="_blank" rel="external">http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random</a><br><a href="http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random" target="_blank" rel="external">http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random</a><br><a href="http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html" target="_blank" rel="external">http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html</a></p>
