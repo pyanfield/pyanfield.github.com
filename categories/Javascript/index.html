@@ -60,140 +60,43 @@
 </header>
     <div id="main">
       
-  
-    <article id="post-start-with-sencha-framework-with-ios" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2013/03/21/start-with-sencha-framework-with-ios/" class="article-date">
-  <time datetime="2013-03-21T07:49:04.000Z" itemprop="datePublished">Mar 21 2013</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2013/03/21/start-with-sencha-framework-with-ios/">start with sencha framework with ios</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>最近准备在一个简单的ios项目中使用HTML5 去开发，最终选择尝试一下 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a>。今天在这里记录一下简单的搭建步骤。</p>
-<p>首先是安装 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch</a></p>
-<ul>
-<li>确保自己的机器已经有了JRE环境，如果没有，安装一个.</li>
-<li><p>下载并且安装 <a href="http://compass-style.org/install/" target="_blank" rel="external">Compass</a>.</p>
-<pre><code>  Compass 需要你的电脑运行有 Ruby 的环境，所以你应该想安装 Ruby,至于怎么安装，这里省略100字。
-  但是对于怎么安装 Compass ，可以使用下面的命令：
-  -<span class="ruby"> gem update --system
-</span>  -<span class="ruby"> gem install compass</span>
-</code></pre></li>
-<li><p>然后就要安装 <a href="http://www.sencha.com/products/sencha-cmd/download" target="_blank" rel="external">Sencha Cmd</a>.</p>
-</li>
-<li>下载 <a href="http://www.sencha.com/products/touch/" target="_blank" rel="external">Sencha Touch SDK</a> 或者 <a href="http://www.sencha.com/products/extjs/" target="_blank" rel="external">Sencha Ext JS</a>.</li>
-<li>好了最后就是解压你下载的 SDK.</li>
-<li>这个时候你可以使用 <code>sencha help</code> 命令去试验一下是否安装成功。如果成功了，那祝贺你，可以进行下面的步骤了。</li>
-</ul>
-<p>生成一个 iOS 的程序：</p>
-<ul>
-<li><code>cd &lt;your sencha touch directory&gt;</code></li>
-<li><code>sencha generate app &lt;myapp&gt; &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>cd &lt;myapp&#39;s directory&gt;</code></li>
-<li><code>sencha app build native</code> 因为这里我们是需要build一个ios程序，所以这里选择使用<code>native</code></li>
-<li><code>sencha app package run packager.json</code> 这个步骤是将你build好的应用程序用本地的模拟器打开.</li>
-</ul>
-<p>不过在这里我遇到了一个问题，就是使用<code>sencha generate app</code>命令自动生成的应用程序，在我的iphone 5的模拟器里卖弄打开的时候，上下是有黑边的。其实这是 sencha 的一个bug.不过网上也有人给出了一个临时的<a href="http://www.sencha.com/forum/showthread.php?251157-Letter-Boxed-App-on-iphone-5" target="_blank" rel="external">解决方案</a>。</p>
-<pre><code>其实这个也可以说是 ios 的一个bug,你如果做过<span class="keyword">native</span>的应用程序应该知道，在我们将以前的iphone4上的程序转到iphone5上的时候是有同样的问题的，那时候我们是讲一个名字为 <span class="keyword">Default</span>-<span class="number">568</span>h@<span class="number">2</span>x.png的图片放在项目目录下面，当然这个图片的大小应该是<span class="number">640</span>*<span class="number">1136</span>.而在这里呢我们也需要一个这样的图片，我们需要讲这个图片放在我们项目&lt;myapp&gt;<span class="regexp">/resources/</span>startup下面，因为在我们build的时候，这些文件会被自动拷贝到 &lt;myapp&gt;<span class="regexp">/webapp/</span>resources<span class="regexp">/startup路径下面，然后在我们的项目文件夹下的 packager.json 里添加一行 "rawConfig":"&lt;key&gt;UILaunchImageFile&lt;/</span>key&gt;&lt;string&gt;webapp<span class="regexp">/resources/</span>startup<span class="regexp">/Default-568h@2x.png&lt;/</span>string&gt;<span class="string">"`.</span>
-</code></pre><p>好了，Sencha之旅的第一步还算顺利吧。</p>
-
+  <div class="archive">
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sencha/">sencha</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-jquery-fundamentals" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2011/11/14/jquery-fundamentals/" class="article-date">
-  <time datetime="2011-11-14T07:48:06.000Z" itemprop="datePublished">Nov 14 2011</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2011/11/14/jquery-fundamentals/">jQuery Fundamentals</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>I found a good web to learn basic of jQuery, maybe you know that, but I think it is really good.<br><a href="http://jqfundamentals.com/" target="_blank" rel="external"><code>jQuery Fundamentals::A guide to the basics of jQuery</code></a>.</p>
-
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2013-03-21T07:49:04.000Z"><a href="/2013/03/21/start-with-sencha-framework-with-ios/">Mar 21 2013</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2013/03/21/start-with-sencha-framework-with-ios/">start with sencha framework with ios</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2011-11-14T07:48:06.000Z"><a href="/2011/11/14/jquery-fundamentals/">Nov 14 2011</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2011/11/14/jquery-fundamentals/">jQuery Fundamentals</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-  
 
     </div>
     <div class="mb-search">

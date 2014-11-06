@@ -60,73 +60,26 @@
 </header>
     <div id="main">
       
-  
-    <article id="post-wspiechart-is-ok" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2012/02/21/wspiechart-is-ok/" class="article-date">
-  <time datetime="2012-02-21T07:47:20.000Z" itemprop="datePublished">Feb 21 2012</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2012/02/21/wspiechart-is-ok/">WSPieChart is ok</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>At present, pie chart is ok.There are two classes for pie chart, one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a>, another one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.</p>
-<h3 id="The_difference_between_WSPieChartView_and_WSPieChartWithMotion_are_below:">The difference between WSPieChartView and WSPieChartWithMotion are below:</h3>
-<ul>
-<li>Drawing the pie sector on the UIView in <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a>. But in the <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a> is CALayer. Extracted drawn content to different part.</li>
-<li>Adding open and close animation on <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.So when you press the pie, you can find it open smoothly. But <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a> doesn’t have this function.</li>
-<li>Adding transformation on the pie when update the datas. This is only support on <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.</li>
-<li>Removing the indicator from <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>. Maybe I will add it later.</li>
-</ul>
-<h3 id="Key_points_when_you_use_WSPieChartWithMotion:">Key points when you use WSPieChartWithMotion:</h3>
-<ul>
-<li>Carefully using the shadow. Because it will create shadow on both view and layers.Detail information you can find on the comments of class.</li>
-<li>Switching data. The datas must have same titles. But they can be different order.<br>The codes are just tested on simulator, not on device.</li>
-</ul>
-
+  <div class="archive">
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2012-02-21T07:47:20.000Z"><a href="/2012/02/21/wspiechart-is-ok/">Feb 21 2012</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2012/02/21/wspiechart-is-ok/">WSPieChart is ok</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opensource/">opensource</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-  
 
     </div>
     <div class="mb-search">

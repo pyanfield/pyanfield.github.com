@@ -60,375 +60,111 @@
 </header>
     <div id="main">
       
-  
-    <article id="post-Constants_in_Objective-C" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2013/12/02/Constants_in_Objective-C/" class="article-date">
-  <time datetime="2013-12-02T07:42:02.000Z" itemprop="datePublished">Dec 2 2013</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2013/12/02/Constants_in_Objective-C/">Constants in Objective-C</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>定义一个全局的常量以便在 <code>Objective-C</code> 的项目中使用。可以通过创建一个头文件，比如 <code>Constants.h</code>，然后在头文件声明如下：</p>
-<pre><code>FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;
-FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;
-</code></pre><p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
-<pre><code><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;
-<span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;
-</code></pre><p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
-<p>注意这里使用的 <code>FOUNDATION_EXPORT</code> 因为，当你在 objective-c 中引入了 <code>Foundation Framework</code> 之后，你最好是用 <code>FOUNDATION_EXPORT</code> 来代替 <code>extern</code>, 因为在 <code>NSObjCRuntime.h</code> 中它包括了一些 C 和 C++ 的库，为了能更好的和这些 C 和 C++ 库兼容，所以建议用 <code>FOUNDATION_EXPORT</code>。</p>
-<p><a href="http://stackoverflow.com/questions/538996/constants-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/538996/constants-in-objective-c</a><br><a href="http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1</a></p>
-
+  <div class="archive">
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-wspiechart-is-ok" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2012/02/21/wspiechart-is-ok/" class="article-date">
-  <time datetime="2012-02-21T07:47:20.000Z" itemprop="datePublished">Feb 21 2012</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2012/02/21/wspiechart-is-ok/">WSPieChart is ok</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>At present, pie chart is ok.There are two classes for pie chart, one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a>, another one is <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.</p>
-<h3 id="The_difference_between_WSPieChartView_and_WSPieChartWithMotion_are_below:">The difference between WSPieChartView and WSPieChartWithMotion are below:</h3>
-<ul>
-<li>Drawing the pie sector on the UIView in <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a>. But in the <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a> is CALayer. Extracted drawn content to different part.</li>
-<li>Adding open and close animation on <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.So when you press the pie, you can find it open smoothly. But <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartView.h" target="_blank" rel="external"><code>WSPieChartView</code></a> doesn’t have this function.</li>
-<li>Adding transformation on the pie when update the datas. This is only support on <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>.</li>
-<li>Removing the indicator from <a href="https://github.com/pyanfield/WSChart/blob/master/WSCharts/WSPieChartWithMotionView.h" target="_blank" rel="external"><code>WSPieChartWithMotionView</code></a>. Maybe I will add it later.</li>
-</ul>
-<h3 id="Key_points_when_you_use_WSPieChartWithMotion:">Key points when you use WSPieChartWithMotion:</h3>
-<ul>
-<li>Carefully using the shadow. Because it will create shadow on both view and layers.Detail information you can find on the comments of class.</li>
-<li>Switching data. The datas must have same titles. But they can be different order.<br>The codes are just tested on simulator, not on device.</li>
-</ul>
-
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2013-12-02T07:42:02.000Z"><a href="/2013/12/02/Constants_in_Objective-C/">Dec 2 2013</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2013/12/02/Constants_in_Objective-C/">Constants in Objective-C</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opensource/">opensource</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-how-to-add-cgpoint-to-nsmutablearray" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/" class="article-date">
-  <time datetime="2012-02-01T07:46:26.000Z" itemprop="datePublished">Feb 1 2012</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/">How to add CGPoint to NSMutableArray</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.<br>But you can use NSValue to convert it to object. like this:</p>
-<pre><code><span class="constant">CGPoint point</span> = CGPointMake(<span class="number">0.0</span>,<span class="number">0.0</span>);
-<span class="constant">NSValue *pointValue</span> = [NSValue valueWithCGPoint:point];
-[nsarray addObject:pointValue];
-</code></pre><p>It is very simple to get this value .</p>
-<pre><code><span class="attribute">CGPoint point </span>=<span class="string"> [[nsarray objectAtIndex:i] CGPointValue];</span>
-</code></pre>
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2012-02-21T07:47:20.000Z"><a href="/2012/02/21/wspiechart-is-ok/">Feb 21 2012</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2012/02/21/wspiechart-is-ok/">WSPieChart is ok</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/" class="article-date">
-  <time datetime="2011-12-19T07:44:49.000Z" itemprop="datePublished">Dec 19 2011</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/">Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：</p>
-<pre><code><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span>
-
-<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;
-
-<span class="keyword">@end</span>
-</code></pre><p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
-<pre><code><span class="at_rule">@<span class="keyword">synthesize</span> newNoteViewController = _newNoteViewController</span>;
-</code></pre><p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
-<pre><code><span class="keyword">To</span> allow interoperation <span class="keyword">with</span> manual retain-release code, ARC imposes some constraints <span class="keyword">on</span> <span class="function"><span class="keyword">method</span> <span class="title">and</span> <span class="title">variable</span> <span class="title">naming</span>:</span>
-You cannot give a <span class="keyword">property</span> a name that begins <span class="keyword">with</span> <span class="keyword">new</span>.
-</code></pre><p>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
-
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2012-02-01T07:46:26.000Z"><a href="/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/">Feb 1 2012</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/">How to add CGPoint to NSMutableArray</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARC/">ARC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-arc-enforces-new-rules" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2011/12/19/arc-enforces-new-rules/" class="article-date">
-  <time datetime="2011-12-19T07:43:51.000Z" itemprop="datePublished">Dec 19 2011</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2011/12/19/arc-enforces-new-rules/">arc enforces new rules</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>iOS5中，引入了ARC的功能，具体概念如下：</p>
-<pre><code>Automatic Reference Counting (ARC) <span class="keyword">is</span> a compiler feature <span class="keyword">that</span> provides automatic memory management <span class="keyword">of</span> Objective-C objects. Rather than having <span class="keyword">to</span> think <span class="keyword">about</span> <span class="keyword">about</span> retain <span class="keyword">and</span> release operations, ARC allows you <span class="keyword">to</span> concentrate <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> interesting code, <span class="keyword">the</span> object graphs, <span class="keyword">and</span> <span class="keyword">the</span> relationships <span class="keyword">between</span> objects <span class="keyword">in</span> your <span class="type">application</span>.
-</code></pre><p>ARC主要就是为Objective-C提供了一种自动的内存管理功能。因为在以前的项目中，在内存管理方面，要认为的去做很多大量的重复性的工作。现在有了ARC之后，我们可以更好的专注自己的代码逻辑。一个新的功能的引入，必然会有一些新的规则出现，所以我们在使用ARC的时候要注意一下几点：</p>
-<pre><code>不用再去调用dealloc,retain,<span class="operator"><span class="keyword">release</span>,retainCount或者autorelease这些方法了。也就是说我们在代码中不需要这些了，是不是轻松很多啊。省去了代码中超级多的<span class="keyword">release</span>。
-不能使用NSAllocateObject和NSDeallocatedObject。
-不能在C structires中使用对象指针。
-There <span class="keyword">is</span> <span class="keyword">no</span> casual casting <span class="keyword">between</span> id <span class="keyword">and</span> void *.
-不能使用NSAutoreleasePool，取而代之的是@autoreleasepool，你可以在你生成代码的main.m文件中看到这一变化。
-不能使用memory zones，也就是说不在需要NSZone了。
-还有一点就是在属性声明的时候，属性的名字不能以new开头。 （如果使用了，那么产生的错误，可以参考 Property’s synthesized getter follows Cocoa naming convention <span class="keyword">for</span> returning ‘owned’ objects）.</span>
-</code></pre><p>以上内容取自<a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">ARC Enforces New Rules</a></p>
-
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2011-12-19T07:44:49.000Z"><a href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/">Dec 19 2011</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/">Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARC/">ARC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-random-or-arc4random" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2011/12/12/random-or-arc4random/" class="article-date">
-  <time datetime="2011-12-12T07:43:03.000Z" itemprop="datePublished">Dec 12 2011</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2011/12/12/random-or-arc4random/">random or arc4random</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>如果在你的程序中，要使用到随机数，可能第一反应就是使用random()。但是在今天我看了一段代码之后，里面用到的是arc4random()而不是random()。所以就查了一下到底两个之间有什么区别。</p>
-<p>不查不知道，一查才了解到，原来在随机数生成的选择上还是挺有讲究的。除了上面的arc4random() 和 random()之外，还有经常用到的rand().</p>
-<p>它们之间的区别，用Google找到了一些信息。可以参考下面的内容：<br><a href="http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random" target="_blank" rel="external">http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random</a><br><a href="http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random" target="_blank" rel="external">http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random</a><br><a href="http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html" target="_blank" rel="external">http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html</a></p>
-<p>其中的大体意思都是说arc4random()是产生随机数的首选方案，因为random()产生的是一个可预测的伪随机数，不适合用于安全要求高的情况下。而arc4random()是一个不太可预测的伪随机数，在用到安全性有要求的情况下，arc4random()要优于random()。而如果没有安全性要求的话，random()也是一个不错的选择。在上面提供的参考连接中还提到，rand()是标准C的一部分，而random()是POSIX的一部分，而arc4random()是只有BSD系统才提供的。所以在你要产生随机数的时候，一定要考虑好到底能不能用，和使用的环境是什么。在iPhone开发中，首推arc4random()来生成随机数。</p>
-
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2011-12-19T07:43:51.000Z"><a href="/2011/12/19/arc-enforces-new-rules/">Dec 19 2011</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2011/12/19/arc-enforces-new-rules/">arc enforces new rules</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+      <article class="post post">
+        <footer class="entry-meta-header">
+          <span class="meta-elements date">
+            <time datetime="2011-12-12T07:43:03.000Z"><a href="/2011/12/12/random-or-arc4random/">Dec 12 2011</a></time>
+          </span>
+        </footer>
+        <div class="entry-content">
+          <header>
+            
+              
+                <h1><a href="/2011/12/12/random-or-arc4random/">random or arc4random</a></h1>
+              
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-  
 
     </div>
     <div class="mb-search">
