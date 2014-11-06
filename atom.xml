@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Share Your Passion To Light Your Dreams]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://little.cool/"/>
-  <updated>2014-11-06T14:30:42.715Z</updated>
+  <updated>2014-11-06T15:06:29.060Z</updated>
   <id>http://little.cool/</id>
   
   <author>
@@ -13,6 +13,22 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Using New Domain Name - Little.Cool]]></title>
+    <link href="http://little.cool/2014/11/06/Using-New-Domain-Name-Little-Cool/"/>
+    <id>http://little.cool/2014/11/06/Using-New-Domain-Name-Little-Cool/</id>
+    <published>2014-11-06T14:37:28.000Z</published>
+    <updated>2014-11-06T14:44:37.000Z</updated>
+    <content type="html"><![CDATA[<p>从今天开始启用新的域名 <strong>Little.Cool</strong>, 申请这个域名纯粹是位了好玩，现在顶级域名 <code>.com</code> 能申请到好的已经很不容易了，而一些像 <code>.cool</code> / <code>.guru</code> / <code>.today</code> 之类的还是能申请到一些让人满意的域名的。而且这些域名后缀也挺不错，方便好记。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>从今天开始启用新的域名 <strong>Little.Cool</strong>, 申请这个域名纯粹是位了好玩，现在顶级域名 <code>.com</code> 能申请到好的已经很不容易了，而一些像 <code>.cool</code> / <code>.guru</cod]]>
+    </summary>
+    
+      <category term="others" scheme="http://little.cool/categories/others/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Constants in Objective-C]]></title>
