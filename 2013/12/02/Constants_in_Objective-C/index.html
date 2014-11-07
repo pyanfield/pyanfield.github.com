@@ -6,23 +6,23 @@
   <title>Constants in Objective-C | Little.Cool</title>
   <meta name="viewport" content="width=device-width">
   <meta name="description" content="定义一个全局的常量以便在 Objective-C 的项目中使用。可以通过创建一个头文件，比如 Constants.h，然后在头文件声明如下：
-FOUNDATION_EXPORT NSString *const MyFirstConstant;
-FOUNDATION_EXPORT NSString *const MySecondConstant;
-然后在你的执行文件中 Constants.m 中：">
+12FOUNDATION_EXPORT NSString *const MyFirstConstant;FOUNDATION_EXPORT NSString *const MySecondConstant;
+
+然后在你的执行文件中 Constants.m 中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Constants in Objective-C">
 <meta property="og:url" content="http://little.cool/2013/12/02/Constants_in_Objective-C/">
 <meta property="og:site_name" content="Little.Cool">
 <meta property="og:description" content="定义一个全局的常量以便在 Objective-C 的项目中使用。可以通过创建一个头文件，比如 Constants.h，然后在头文件声明如下：
-FOUNDATION_EXPORT NSString *const MyFirstConstant;
-FOUNDATION_EXPORT NSString *const MySecondConstant;
-然后在你的执行文件中 Constants.m 中：">
+12FOUNDATION_EXPORT NSString *const MyFirstConstant;FOUNDATION_EXPORT NSString *const MySecondConstant;
+
+然后在你的执行文件中 Constants.m 中">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Constants in Objective-C">
 <meta name="twitter:description" content="定义一个全局的常量以便在 Objective-C 的项目中使用。可以通过创建一个头文件，比如 Constants.h，然后在头文件声明如下：
-FOUNDATION_EXPORT NSString *const MyFirstConstant;
-FOUNDATION_EXPORT NSString *const MySecondConstant;
-然后在你的执行文件中 Constants.m 中：">
+12FOUNDATION_EXPORT NSString *const MyFirstConstant;FOUNDATION_EXPORT NSString *const MySecondConstant;
+
+然后在你的执行文件中 Constants.m 中">
 
   
     <link rel="alternative" href="/atom.xml" title="Little.Cool" type="application/atom+xml">
@@ -93,12 +93,12 @@ FOUNDATION_EXPORT NSString *const MySecondConstant;
 	<div class="entry-content">
 		
     	<p>定义一个全局的常量以便在 <code>Objective-C</code> 的项目中使用。可以通过创建一个头文件，比如 <code>Constants.h</code>，然后在头文件声明如下：</p>
-<pre><code>FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;
-FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;
-</code></pre><p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
-<pre><code><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;
-<span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;
-</code></pre><p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;</div><div class="line">FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;</div></pre></td></tr></table></figure>
+
+<p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;</div><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;</div></pre></td></tr></table></figure>
+
+<p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
 <p>注意这里使用的 <code>FOUNDATION_EXPORT</code> 因为，当你在 objective-c 中引入了 <code>Foundation Framework</code> 之后，你最好是用 <code>FOUNDATION_EXPORT</code> 来代替 <code>extern</code>, 因为在 <code>NSObjCRuntime.h</code> 中它包括了一些 C 和 C++ 的库，为了能更好的和这些 C 和 C++ 库兼容，所以建议用 <code>FOUNDATION_EXPORT</code>。</p>
 <p><a href="http://stackoverflow.com/questions/538996/constants-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/538996/constants-in-objective-c</a><br><a href="http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1</a></p>
 

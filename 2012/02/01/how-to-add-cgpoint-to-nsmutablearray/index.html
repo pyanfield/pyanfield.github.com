@@ -6,20 +6,17 @@
   <title>How to add CGPoint to NSMutableArray | Little.Cool</title>
   <meta name="viewport" content="width=device-width">
   <meta name="description" content="CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.But you can use NSValue to convert it to object. like this:
-CGPoint point = CGPointMake(0.0,0.0);
-NSValue *po">
+123CGPoint point = CGPointMake(0.0,0.0);NSValue *">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to add CGPoint to NSMutableArray">
 <meta property="og:url" content="http://little.cool/2012/02/01/how-to-add-cgpoint-to-nsmutablearray/">
 <meta property="og:site_name" content="Little.Cool">
 <meta property="og:description" content="CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.But you can use NSValue to convert it to object. like this:
-CGPoint point = CGPointMake(0.0,0.0);
-NSValue *po">
+123CGPoint point = CGPointMake(0.0,0.0);NSValue *">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to add CGPoint to NSMutableArray">
 <meta name="twitter:description" content="CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.But you can use NSValue to convert it to object. like this:
-CGPoint point = CGPointMake(0.0,0.0);
-NSValue *po">
+123CGPoint point = CGPointMake(0.0,0.0);NSValue *">
 
   
     <link rel="alternative" href="/atom.xml" title="Little.Cool" type="application/atom+xml">
@@ -90,12 +87,12 @@ NSValue *po">
 	<div class="entry-content">
 		
     	<p>CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.<br>But you can use NSValue to convert it to object. like this:</p>
-<pre><code><span class="constant">CGPoint point</span> = CGPointMake(<span class="number">0.0</span>,<span class="number">0.0</span>);
-<span class="constant">NSValue *pointValue</span> = [NSValue valueWithCGPoint:point];
-[nsarray addObject:pointValue];
-</code></pre><p>It is very simple to get this value .</p>
-<pre><code><span class="attribute">CGPoint point </span>=<span class="string"> [[nsarray objectAtIndex:i] CGPointValue];</span>
-</code></pre>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> point = CGPointMake(<span class="number">0.0</span>,<span class="number">0.0</span>);</div><div class="line">NSValue *pointValue = [NSValue valueWithCGPoint:point];</div><div class="line">[nsarray addObject:pointValue];</div></pre></td></tr></table></figure>
+
+<p>It is very simple to get this value .</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> point = [[nsarray objectAtIndex:i] CGPointValue];</div></pre></td></tr></table></figure>
+
+
     
 	</div>
 	<footer class="entry-footer">

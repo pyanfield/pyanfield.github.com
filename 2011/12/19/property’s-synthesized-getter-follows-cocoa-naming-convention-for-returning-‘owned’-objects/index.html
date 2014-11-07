@@ -6,23 +6,17 @@
   <title>Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects | Little.Cool</title>
   <meta name="viewport" content="width=device-width">
   <meta name="description" content="今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：
-@interface MyNoteViewController:UIViewController
-
-@property (non">
+123@interface MyNoteViewController:UIViewController@property (no">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects">
 <meta property="og:url" content="http://little.cool/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/">
 <meta property="og:site_name" content="Little.Cool">
 <meta property="og:description" content="今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：
-@interface MyNoteViewController:UIViewController
-
-@property (non">
+123@interface MyNoteViewController:UIViewController@property (no">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects">
 <meta name="twitter:description" content="今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：
-@interface MyNoteViewController:UIViewController
-
-@property (non">
+123@interface MyNoteViewController:UIViewController@property (no">
 
   
     <link rel="alternative" href="/atom.xml" title="Little.Cool" type="application/atom+xml">
@@ -93,17 +87,15 @@
 	<div class="entry-content">
 		
     	<p>今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：</p>
-<pre><code><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 
-<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;
+<p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@synthesize</span> newNoteViewController = _newNoteViewController;</div></pre></td></tr></table></figure>
 
-<span class="keyword">@end</span>
-</code></pre><p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
-<pre><code><span class="at_rule">@<span class="keyword">synthesize</span> newNoteViewController = _newNoteViewController</span>;
-</code></pre><p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
-<pre><code><span class="keyword">To</span> allow interoperation <span class="keyword">with</span> manual retain-release code, ARC imposes some constraints <span class="keyword">on</span> <span class="function"><span class="keyword">method</span> <span class="title">and</span> <span class="title">variable</span> <span class="title">naming</span>:</span>
-You cannot give a <span class="keyword">property</span> a name that begins <span class="keyword">with</span> <span class="keyword">new</span>.
-</code></pre><p>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
+<p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
+<blockquote>
+<p>To allow interoperation with manual retain-release code, ARC imposes some constraints on method and variable naming:<br>You cannot give a property a name that begins with new.<br>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
+</blockquote>
 
     
 	</div>

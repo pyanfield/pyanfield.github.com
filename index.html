@@ -137,12 +137,12 @@
 	<div class="entry-content">
 		
     	<p>定义一个全局的常量以便在 <code>Objective-C</code> 的项目中使用。可以通过创建一个头文件，比如 <code>Constants.h</code>，然后在头文件声明如下：</p>
-<pre><code>FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;
-FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;
-</code></pre><p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
-<pre><code><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;
-<span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;
-</code></pre><p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant;</div><div class="line">FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant;</div></pre></td></tr></table></figure>
+
+<p>然后在你的执行文件中 <code>Constants.m</code> 中：</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> MyFirstConstant = <span class="string">@"FirstConstant"</span>;</div><div class="line"><span class="built_in">NSString</span> *<span class="keyword">const</span> MySecondConstant = <span class="string">@"SecondConstant"</span>;</div></pre></td></tr></table></figure>
+
+<p>将你的 <code>Constants.m</code> 文件添加到你的 <code>application/framework</code> 的 <code>target</code> 中。这样你就可以使用这些全局的常量了。</p>
 <p>注意这里使用的 <code>FOUNDATION_EXPORT</code> 因为，当你在 objective-c 中引入了 <code>Foundation Framework</code> 之后，你最好是用 <code>FOUNDATION_EXPORT</code> 来代替 <code>extern</code>, 因为在 <code>NSObjCRuntime.h</code> 中它包括了一些 C 和 C++ 的库，为了能更好的和这些 C 和 C++ 库兼容，所以建议用 <code>FOUNDATION_EXPORT</code>。</p>
 <p><a href="http://stackoverflow.com/questions/538996/constants-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/538996/constants-in-objective-c</a><br><a href="http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/19192432/when-to-use-foundation-export?lq=1</a></p>
 
@@ -342,12 +342,12 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
 	<div class="entry-content">
 		
     	<p>CGPoint is a C structure not an object. So you can’t add CGPoint to NSMutableArry directly.<br>But you can use NSValue to convert it to object. like this:</p>
-<pre><code><span class="constant">CGPoint point</span> = CGPointMake(<span class="number">0.0</span>,<span class="number">0.0</span>);
-<span class="constant">NSValue *pointValue</span> = [NSValue valueWithCGPoint:point];
-[nsarray addObject:pointValue];
-</code></pre><p>It is very simple to get this value .</p>
-<pre><code><span class="attribute">CGPoint point </span>=<span class="string"> [[nsarray objectAtIndex:i] CGPointValue];</span>
-</code></pre>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> point = CGPointMake(<span class="number">0.0</span>,<span class="number">0.0</span>);</div><div class="line">NSValue *pointValue = [NSValue valueWithCGPoint:point];</div><div class="line">[nsarray addObject:pointValue];</div></pre></td></tr></table></figure>
+
+<p>It is very simple to get this value .</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> point = [[nsarray objectAtIndex:i] CGPointValue];</div></pre></td></tr></table></figure>
+
+
     
 	</div>
 	<footer class="entry-footer">
@@ -400,17 +400,15 @@ FOUNDATION_EXPORT <span class="built_in">NSString</span> *<span class="keyword">
 	<div class="entry-content">
 		
     	<p>今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：</p>
-<pre><code><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 
-<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;
+<p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@synthesize</span> newNoteViewController = _newNoteViewController;</div></pre></td></tr></table></figure>
 
-<span class="keyword">@end</span>
-</code></pre><p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
-<pre><code><span class="at_rule">@<span class="keyword">synthesize</span> newNoteViewController = _newNoteViewController</span>;
-</code></pre><p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
-<pre><code><span class="keyword">To</span> allow interoperation <span class="keyword">with</span> manual retain-release code, ARC imposes some constraints <span class="keyword">on</span> <span class="function"><span class="keyword">method</span> <span class="title">and</span> <span class="title">variable</span> <span class="title">naming</span>:</span>
-You cannot give a <span class="keyword">property</span> a name that begins <span class="keyword">with</span> <span class="keyword">new</span>.
-</code></pre><p>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
+<p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
+<blockquote>
+<p>To allow interoperation with manual retain-release code, ARC imposes some constraints on method and variable naming:<br>You cannot give a property a name that begins with new.<br>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
+</blockquote>
 
     
 	</div>
@@ -464,16 +462,19 @@ You cannot give a <span class="keyword">property</span> a name that begins <span
 	<div class="entry-content">
 		
     	<p>iOS5中，引入了ARC的功能，具体概念如下：</p>
-<pre><code>Automatic Reference Counting (ARC) <span class="keyword">is</span> a compiler feature <span class="keyword">that</span> provides automatic memory management <span class="keyword">of</span> Objective-C objects. Rather than having <span class="keyword">to</span> think <span class="keyword">about</span> <span class="keyword">about</span> retain <span class="keyword">and</span> release operations, ARC allows you <span class="keyword">to</span> concentrate <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> interesting code, <span class="keyword">the</span> object graphs, <span class="keyword">and</span> <span class="keyword">the</span> relationships <span class="keyword">between</span> objects <span class="keyword">in</span> your <span class="type">application</span>.
-</code></pre><p>ARC主要就是为Objective-C提供了一种自动的内存管理功能。因为在以前的项目中，在内存管理方面，要认为的去做很多大量的重复性的工作。现在有了ARC之后，我们可以更好的专注自己的代码逻辑。一个新的功能的引入，必然会有一些新的规则出现，所以我们在使用ARC的时候要注意一下几点：</p>
-<pre><code>不用再去调用dealloc,retain,<span class="operator"><span class="keyword">release</span>,retainCount或者autorelease这些方法了。也就是说我们在代码中不需要这些了，是不是轻松很多啊。省去了代码中超级多的<span class="keyword">release</span>。
-不能使用NSAllocateObject和NSDeallocatedObject。
-不能在C structires中使用对象指针。
-There <span class="keyword">is</span> <span class="keyword">no</span> casual casting <span class="keyword">between</span> id <span class="keyword">and</span> void *.
-不能使用NSAutoreleasePool，取而代之的是@autoreleasepool，你可以在你生成代码的main.m文件中看到这一变化。
-不能使用memory zones，也就是说不在需要NSZone了。
-还有一点就是在属性声明的时候，属性的名字不能以new开头。 （如果使用了，那么产生的错误，可以参考 Property’s synthesized getter follows Cocoa naming convention <span class="keyword">for</span> returning ‘owned’ objects）.</span>
-</code></pre><p>以上内容取自<a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">ARC Enforces New Rules</a></p>
+<blockquote>
+<p>Automatic Reference Counting (ARC) is a compiler feature that provides automatic memory management of Objective-C objects. Rather than having to think about about retain and release operations, ARC allows you to concentrate on the interesting code, the object graphs, and the relationships between objects in your application.</p>
+</blockquote>
+<p>ARC主要就是为Objective-C提供了一种自动的内存管理功能。因为在以前的项目中，在内存管理方面，要认为的去做很多大量的重复性的工作。现在有了ARC之后，我们可以更好的专注自己的代码逻辑。一个新的功能的引入，必然会有一些新的规则出现，所以我们在使用ARC的时候要注意一下几点：</p>
+<ul>
+<li>不用再去调用dealloc,retain,release,retainCount或者autorelease这些方法了。也就是说我们在代码中不需要这些了，是不是轻松很多啊。省去了代码中超级多的release。</li>
+<li>不能使用NSAllocateObject和NSDeallocatedObject。</li>
+<li>不能在C structires中使用对象指针。</li>
+<li>There is no casual casting between id and void *.</li>
+<li>不能使用NSAutoreleasePool，取而代之的是@autoreleasepool，你可以在你生成代码的main.m文件中看到这一变化。</li>
+<li>不能使用memory zones，也就是说不在需要NSZone了。</li>
+<li>还有一点就是在属性声明的时候，属性的名字不能以new开头。 （如果使用了，那么产生的错误，可以参考 Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects）.<br>以上内容取自<a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">ARC Enforces New Rules</a></li>
+</ul>
 
     
 	</div>
