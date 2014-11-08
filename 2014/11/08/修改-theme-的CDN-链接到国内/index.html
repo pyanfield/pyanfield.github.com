@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>修改 theme 的CDN 链接到国内 | Little.Cool</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="本站是基于 hexo 搭建，使用了 Apollo Theme, 但是在国内访问速度超慢。
+后来查了一下，原来是使用了 google 的 CDN 和调用了 google web fonts 字体库里面的字体。因为众所周知的原因，国内访问 google 的服务就是灾难（我可以骂人嘛）。
+所以只能将他们改到国内的一些 CDN 服务上来，好在一些通用的代码库的 CDN 国内都有很好的支持，比如：
+
+百度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修改 theme 的CDN 链接到国内">
+<meta property="og:url" content="http://little.cool/2014/11/08/修改-theme-的CDN-链接到国内/">
+<meta property="og:site_name" content="Little.Cool">
+<meta property="og:description" content="本站是基于 hexo 搭建，使用了 Apollo Theme, 但是在国内访问速度超慢。
+后来查了一下，原来是使用了 google 的 CDN 和调用了 google web fonts 字体库里面的字体。因为众所周知的原因，国内访问 google 的服务就是灾难（我可以骂人嘛）。
+所以只能将他们改到国内的一些 CDN 服务上来，好在一些通用的代码库的 CDN 国内都有很好的支持，比如：
+
+百度">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="修改 theme 的CDN 链接到国内">
+<meta name="twitter:description" content="本站是基于 hexo 搭建，使用了 Apollo Theme, 但是在国内访问速度超慢。
+后来查了一下，原来是使用了 google 的 CDN 和调用了 google web fonts 字体库里面的字体。因为众所周知的原因，国内访问 google 的服务就是灾难（我可以骂人嘛）。
+所以只能将他们改到国内的一些 CDN 服务上来，好在一些通用的代码库的 CDN 国内都有很好的支持，比如：
+
+百度">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Little.Cool" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-56481005-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">Little.Cool</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li><li><a href="/about">About</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://little.cool"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-修改-theme-的CDN-链接到国内" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2014/11/08/修改-theme-的CDN-链接到国内/" class="article-date">
+  <time datetime="2014-11-08T09:26:30.000Z" itemprop="datePublished">Nov 8 2014</time>
+</a>
+		</span>
+		<span class="meta-elements author">pyanfield</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      修改 theme 的CDN 链接到国内
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>本站是基于 <a href="http://hexo.io" target="_blank" rel="external">hexo</a> 搭建，使用了 <a href="https://github.com/joyceim/hexo-theme-apollo" target="_blank" rel="external">Apollo Theme</a>, 但是在国内访问速度超慢。</p>
+<p>后来查了一下，原来是使用了 google 的 CDN 和调用了 google web fonts 字体库里面的字体。因为众所周知的原因，国内访问 google 的服务就是灾难（我可以骂人嘛）。</p>
+<p>所以只能将他们改到国内的一些 CDN 服务上来，好在一些通用的代码库的 CDN 国内都有很好的支持，比如：</p>
+<ul>
+<li><a href="http://developer.baidu.com/wiki/index.php?title=docs/cplat/libs" target="_blank" rel="external">百度 CDN 公共库</a></li>
+<li><a href="http://lib.sinaapp.com/" target="_blank" rel="external">新浪云计算CDN公共库</a></li>
+<li><a href="http://www.staticfile.org/" target="_blank" rel="external">七牛云存储静态文件CDN</a></li>
+<li><a href="http://libs.useso.com/" target="_blank" rel="external">360网站卫士CDN前端公共库</a></li>
+</ul>
+<p>但是对于 google web fonts 字体库的支持，则没有那么多了，貌似目前只有<a href="http://libs.useso.com/" target="_blank" rel="external">360网站卫士</a>有提供，而且使用起来非常的简单。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/others/">others</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDN/">CDN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fonts/">fonts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/">google</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/11/06/Using-New-Domain-Name-Little-Cool/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Using New Domain Name - Little.Cool
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:little.cool">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">Little.Cool</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2014 pyanfield<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
