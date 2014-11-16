@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Share Your Passion To Light Your Dreams]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://little.cool/"/>
-  <updated>2014-11-08T09:44:00.213Z</updated>
+  <updated>2014-11-16T07:44:54.987Z</updated>
   <id>http://little.cool/</id>
   
   <author>
@@ -13,6 +13,53 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[2014 APEC 的巧妙翻译]]></title>
+    <link href="http://little.cool/2014/11/16/2014-APEC-%E7%9A%84%E5%B7%A7%E5%A6%99%E7%BF%BB%E8%AF%91/"/>
+    <id>http://little.cool/2014/11/16/2014-APEC-的巧妙翻译/</id>
+    <published>2014-11-16T07:22:21.000Z</published>
+    <updated>2014-11-16T07:44:20.000Z</updated>
+    <content type="html"><![CDATA[<p>2014 年的北京的 APEC 终于结束了，除了老百姓发明的 APEC Blue 等带有嘲讽色彩的新词之外，让我们看看网友收集的一些习大大讲话的神翻译。</p>
+<p><strong>山明水净夜来霜，数树深红出浅黄。</strong>这句是出自唐朝诗人刘禹锡的《秋词二首》，全诗如下：</p>
+<blockquote>
+<p>自古逢秋悲寂寥，我言秋日胜春朝。<br>晴空一鹤排云上，便引诗情到碧霄。<br>山明水净夜来霜，数树深红出浅黄。<br>试上高楼清入骨，岂如春色嗾人狂。</p>
+</blockquote>
+<p>中国的古诗讲究对仗和押韵，所以翻译起来很难。看看我们的翻译是怎么翻译的：</p>
+<blockquote>
+<p>The water is clear and the mountain is bright. The frost comes in at night, trees are covered with deep scarlet leaves mixed with yellow that is light.<br>这里的 <em>bright</em>,<em>night</em>和<em>light</em>也都比较押韵。</p>
+</blockquote>
+<p><strong>有路才能人畅其行，物畅其流</strong></p>
+<blockquote>
+<p>With roads in place, people and goods can flow.</p>
+</blockquote>
+<p><strong>志同道合</strong></p>
+<blockquote>
+<p>People who cherish the same ideals follow the same path.</p>
+</blockquote>
+<p><strong>志存高远，脚踏实地</strong></p>
+<blockquote>
+<p>Aspire for high and grand <strong>while</strong> planting our feet firmly on the ground.</p>
+</blockquote>
+<p><strong>朋友多了，路才好走</strong></p>
+<blockquote>
+<p>More friends, more opportunities.</p>
+</blockquote>
+<p><strong>大时代需要大格局，大格局需要大智慧</strong></p>
+<blockquote>
+<p>A great era <strong>calls for</strong> great vision, which in turn <strong>requires</strong> great wisdom.s</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>2014 年的北京的 APEC 终于结束了，除了老百姓发明的 APEC Blue 等带有嘲讽色彩的新词之外，让我们看看网友收集的一些习大大讲话的神翻译。</p>
+<p><strong>山明水净夜来霜，数树深红出浅黄。</strong>这句是出自唐朝诗人刘禹锡的《秋词二首》，]]>
+    </summary>
+    
+      <category term="english" scheme="http://little.cool/tags/english/"/>
+    
+      <category term="others" scheme="http://little.cool/categories/others/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[修改 theme 的CDN 链接到国内]]></title>
