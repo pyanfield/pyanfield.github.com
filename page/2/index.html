@@ -61,6 +61,62 @@
     <div id="main">
       
   
+    <article id="post-random-or-arc4random" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2011/12/12/random-or-arc4random/" class="article-date">
+  <time datetime="2011-12-12T07:43:03.000Z" itemprop="datePublished">Dec 12 2011</time>
+</a>
+		</span>
+		<span class="meta-elements author">pyanfield</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2011/12/12/random-or-arc4random/">random or arc4random</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>如果在你的程序中，要使用到随机数，可能第一反应就是使用random()。但是在今天我看了一段代码之后，里面用到的是arc4random()而不是random()。所以就查了一下到底两个之间有什么区别。</p>
+<p>不查不知道，一查才了解到，原来在随机数生成的选择上还是挺有讲究的。除了上面的arc4random() 和 random()之外，还有经常用到的rand().</p>
+<p>它们之间的区别，用Google找到了一些信息。可以参考下面的内容：<br><a href="http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random" target="_blank" rel="external">http://stackoverflow.com/questions/2794201/whats-the-difference-between-arc4random-and-random</a><br><a href="http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random" target="_blank" rel="external">http://stackoverflow.com/questions/328950/c-the-definitive-truth-about-rand-random-and-arc4random</a><br><a href="http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html" target="_blank" rel="external">http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-rand-vs-arc4random.html</a></p>
+<p>其中的大体意思都是说arc4random()是产生随机数的首选方案，因为random()产生的是一个可预测的伪随机数，不适合用于安全要求高的情况下。而arc4random()是一个不太可预测的伪随机数，在用到安全性有要求的情况下，arc4random()要优于random()。而如果没有安全性要求的话，random()也是一个不错的选择。在上面提供的参考连接中还提到，rand()是标准C的一部分，而random()是POSIX的一部分，而arc4random()是只有BSD系统才提供的。所以在你要产生随机数的时候，一定要考虑好到底能不能用，和使用的环境是什么。在iPhone开发中，首推arc4random()来生成随机数。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objective-c/">objective-c</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
     <article id="post-ios-ui-design-resource" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
