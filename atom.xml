@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Share Your Passion To Light Your Dreams]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://little.cool/"/>
-  <updated>2014-11-19T06:52:26.618Z</updated>
+  <updated>2014-11-20T09:53:53.057Z</updated>
   <id>http://little.cool/</id>
   
   <author>
@@ -13,6 +13,35 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[RTCReporting block video on iOS simulator]]></title>
+    <link href="http://little.cool/2014/11/20/RTCReporting-block-video-on-iOS-simulator/"/>
+    <id>http://little.cool/2014/11/20/RTCReporting-block-video-on-iOS-simulator/</id>
+    <published>2014-11-20T09:37:09.000Z</published>
+    <updated>2014-11-20T09:51:22.000Z</updated>
+    <content type="html"><![CDATA[<p>今天在调试程序，用 MPMoviePlayerController 去播放 video，但是程序总是 crash。设置了 All Exceptions Enabled 和 Enable Zombie Objects. 但是还是没有看到平时看到的 crash log 。调试了一个多小时也没有啥进展，正苦恼之际，无意中看到 console 上有两条不是自己 app 的 log。 </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">Nov</span> 20 17<span class="pseudo">:32</span><span class="pseudo">:55</span>  <span class="tag">rtcreporting</span><span class="attr_selector">[17045]</span> &lt;<span class="tag">Info</span>&gt;: <span class="tag">logging</span> <span class="tag">starts</span>...</div><div class="line"><span class="tag">Nov</span> 20 17<span class="pseudo">:32</span><span class="pseudo">:55</span>  <span class="tag">rtcreporting</span><span class="attr_selector">[17045]</span> &lt;<span class="tag">Debug</span>&gt;: <span class="tag">setMessageLoggingBlock</span>: <span class="tag">called</span></div></pre></td></tr></table></figure>
+
+<p>这个 <em>rtcreporting</em> 到底是个神马玩意？ 外事不明问 Google, 一搜还真有相关的文章。<a href="http://stackoverflow.com/questions/22569013/rtcreporting-pancake-apple-com-errors" target="_blank" rel="external">原来这不是我的 BUG</a>。</p>
+<blockquote>
+<p>I always encounter this issue if I’ve got an Exception Breakpoint enabled when I play a video. If I disable it then it works fine. I’ve submitted a bug report to Apple also.<br>This seems to be a problem with trying to play videos on the simulator.</p>
+</blockquote>
+<p>好吧，我认了，浪费了一个多小时。不过这也怪自己，明明这么有用的线索在 console 里面，我却没有注意到。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>今天在调试程序，用 MPMoviePlayerController 去播放 video，但是程序总是 crash。设置了 All Exceptions Enabled 和 Enable Zombie Objects. 但是还是没有看到平时看到的 crash log 。调试了]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://little.cool/tags/iOS/"/>
+    
+      <category term="bug" scheme="http://little.cool/tags/bug/"/>
+    
+      <category term="video" scheme="http://little.cool/tags/video/"/>
+    
+      <category term="iOS" scheme="http://little.cool/categories/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Github 上面的一些和 swift 相关的比较有意思的资源]]></title>

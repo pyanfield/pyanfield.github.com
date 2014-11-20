@@ -61,6 +61,66 @@
     <div id="main">
       
   
+    <article id="post-RTCReporting-block-video-on-iOS-simulator" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2014/11/20/RTCReporting-block-video-on-iOS-simulator/" class="article-date">
+  <time datetime="2014-11-20T09:37:09.000Z" itemprop="datePublished">Nov 20 2014</time>
+</a>
+		</span>
+		<span class="meta-elements author">pyanfield</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2014/11/20/RTCReporting-block-video-on-iOS-simulator/">RTCReporting block video on iOS simulator</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>今天在调试程序，用 MPMoviePlayerController 去播放 video，但是程序总是 crash。设置了 All Exceptions Enabled 和 Enable Zombie Objects. 但是还是没有看到平时看到的 crash log 。调试了一个多小时也没有啥进展，正苦恼之际，无意中看到 console 上有两条不是自己 app 的 log。 </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">Nov</span> 20 17<span class="pseudo">:32</span><span class="pseudo">:55</span>  <span class="tag">rtcreporting</span><span class="attr_selector">[17045]</span> &lt;<span class="tag">Info</span>&gt;: <span class="tag">logging</span> <span class="tag">starts</span>...</div><div class="line"><span class="tag">Nov</span> 20 17<span class="pseudo">:32</span><span class="pseudo">:55</span>  <span class="tag">rtcreporting</span><span class="attr_selector">[17045]</span> &lt;<span class="tag">Debug</span>&gt;: <span class="tag">setMessageLoggingBlock</span>: <span class="tag">called</span></div></pre></td></tr></table></figure>
+
+<p>这个 <em>rtcreporting</em> 到底是个神马玩意？ 外事不明问 Google, 一搜还真有相关的文章。<a href="http://stackoverflow.com/questions/22569013/rtcreporting-pancake-apple-com-errors" target="_blank" rel="external">原来这不是我的 BUG</a>。</p>
+<blockquote>
+<p>I always encounter this issue if I’ve got an Exception Breakpoint enabled when I play a video. If I disable it then it works fine. I’ve submitted a bug report to Apple also.<br>This seems to be a problem with trying to play videos on the simulator.</p>
+</blockquote>
+<p>好吧，我认了，浪费了一个多小时。不过这也怪自己，明明这么有用的线索在 console 里面，我却没有注意到。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/video/">video</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
     <article id="post-Github-上面的一些和-swift-相关的比较有意思的资源" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
@@ -688,72 +748,6 @@
 			<span class="tags">
 				
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARC/">ARC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objective-c/">objective-c</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-arc-enforces-new-rules" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2011/12/19/arc-enforces-new-rules/" class="article-date">
-  <time datetime="2011-12-19T07:43:51.000Z" itemprop="datePublished">Dec 19 2011</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2011/12/19/arc-enforces-new-rules/">arc enforces new rules</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>iOS5中，引入了ARC的功能，具体概念如下：</p>
-<blockquote>
-<p>Automatic Reference Counting (ARC) is a compiler feature that provides automatic memory management of Objective-C objects. Rather than having to think about about retain and release operations, ARC allows you to concentrate on the interesting code, the object graphs, and the relationships between objects in your application.</p>
-</blockquote>
-<p>ARC主要就是为Objective-C提供了一种自动的内存管理功能。因为在以前的项目中，在内存管理方面，要认为的去做很多大量的重复性的工作。现在有了ARC之后，我们可以更好的专注自己的代码逻辑。一个新的功能的引入，必然会有一些新的规则出现，所以我们在使用ARC的时候要注意一下几点：</p>
-<ul>
-<li>不用再去调用dealloc,retain,release,retainCount或者autorelease这些方法了。也就是说我们在代码中不需要这些了，是不是轻松很多啊。省去了代码中超级多的release。</li>
-<li>不能使用NSAllocateObject和NSDeallocatedObject。</li>
-<li>不能在C structires中使用对象指针。</li>
-<li>There is no casual casting between id and void *.</li>
-<li>不能使用NSAutoreleasePool，取而代之的是@autoreleasepool，你可以在你生成代码的main.m文件中看到这一变化。</li>
-<li>不能使用memory zones，也就是说不在需要NSZone了。</li>
-<li>还有一点就是在属性声明的时候，属性的名字不能以new开头。 （如果使用了，那么产生的错误，可以参考 Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects）.<br>以上内容取自<a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">ARC Enforces New Rules</a></li>
-</ul>
-
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARC/">ARC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
 			</span>
 		</div>
