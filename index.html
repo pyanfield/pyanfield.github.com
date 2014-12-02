@@ -61,6 +61,78 @@
     <div id="main">
       
   
+    <article id="post-namespaces-in-swift" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2014/12/01/namespaces-in-swift/" class="article-date">
+  <time datetime="2014-12-01T09:55:45.000Z" itemprop="datePublished">Dec 1 2014</time>
+</a>
+		</span>
+		<span class="meta-elements author">pyanfield</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2014/12/01/namespaces-in-swift/">namespaces in swift?</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>Objective-C 广泛被人诟病的一点就是没有 namespace 或者 module 的概念，而如果避免冲突的话只能靠给自己的类起个独特的名字来实现。</p>
+<blockquote>
+<p>Objective-C classes must be named uniquely not only within the code that you’re writing in a project, but also across any frameworks or bundles you might be including.</p>
+</blockquote>
+<p>当然啦，苹果也给出了自己的建议：</p>
+<blockquote>
+<p>In order to keep class names unique, the convention is to use prefixes on all classes. You’ll have noticed that Cocoa and Cocoa Touch class names typically start either with NS or UI. Two-letter prefixes like these are reserved by Apple for use in framework classes.<br>Your own classes should use three letter prefixes. These might relate to a combination of your company name and your app name, or even a specific component within your app</p>
+</blockquote>
+<p>也就说，你需要给自己的类名起一个独特的类名前缀，最好是三个或者四个大写字母，因为两个字母的是苹果自己保留的，你起得再好，也随时都可能被剥夺，如果和你的发生冲突的话，那么只能对不起啦，后果自负吧。</p>
+<p>当 Swift 发布之后，很多人发现依然没有类似 namespace , package 这样的关键字来定义 namespace 或者 module,但是是不是 Swift 就和 Objective-C 一样，还是要必须通过起一个独特的名字来避免命名冲突呢？Swift 的发明者 <strong><a href="http://en.wikipedia.org/wiki/Chris_Lattner" target="_blank" rel="external">Chris Lattner</a></strong> 在自己的 <a href="https://twitter.com/clattner_llvm/status/474730716941385729" target="_blank" rel="external">Twitter</a>给出了答案：</p>
+<blockquote>
+<p>Namespacing is implicit in swift, all classes (etc) are implicitly scoped by the module (Xcode target) they are in. no class prefixes needed</p>
+</blockquote>
+<p>也就是说在 Swift 中，没有显示的声明，而且 namespace 不是按照文件来区分的，而是按照 XCode 中 Target 的 <strong>Product Module Name </strong>名字来隐式的加以区别，其实这更像是 module 的概念。其实举一个很简单的例子，比如在我的 App 中，我有一个 class 的名字是 UIAlertView (当然这个例子很不恰当，但是却能说明问题), 而当我想使用 UIKit 中得 UIAlertView 的时候，我可以使用:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">UIkit</span></div><div class="line"><span class="keyword">let</span> alert = <span class="type">UIKit</span>.<span class="type">UIAlertView</span>(frame: frame)</div></pre></td></tr></table></figure>
+
+<p>而我要调用自己定义的 UIAlertView 的时候，可以直接使用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> myAlert = <span class="type">UIAlertView</span>()</div></pre></td></tr></table></figure>
+
+<p>这个时候并不冲突。其实这是一个很大的进步，而且会很有用处，比如我有两个库，一个叫 FrameworkA, 一个叫 FrameworkB, 它们之间唯一的区别就是  FrameworkB 是一个 mini 版的 FrameworkA,是在 FramworkA 的基础上做了一些删减，添加了少许的新功能。但是在我们项目中要根据服务器返回的数据不同使用不同的 Framework,而这个时候我们就可以通过调用 <strong><em>FrameworkA.test()</em></strong> 和 <strong><em>FrameworkB.test()</em></strong> 来调用不同的方法。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Swift/">Swift</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/module/">module</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/namespace/">namespace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
     <article id="post-RTCReporting-block-video-on-iOS-simulator" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
@@ -686,68 +758,6 @@
 			<span class="tags">
 				
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objective-c/">objective-c</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-  
-    <article id="post-property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/" class="article-date">
-  <time datetime="2011-12-19T07:44:49.000Z" itemprop="datePublished">Dec 19 2011</time>
-</a>
-		</span>
-		<span class="meta-elements author">pyanfield</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2011/12/19/property’s-synthesized-getter-follows-cocoa-naming-convention-for-returning-‘owned’-objects/">Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>今天在声明一个类属性的时候遇到了这样一个错误 “ Property’s synthesized getter follows Cocoa naming convention for returning ‘owned’ objects” 。我类声明文件 ( .h) 如下：</p>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyNoteViewController</span>:<span class="title">UIViewController</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NewNoteViewController *newNoteViewController;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-
-<p>然后在我的执行文件 (.m) 中如下的地方就会出现这个错误：</p>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@synthesize</span> newNoteViewController = _newNoteViewController;</div></pre></td></tr></table></figure>
-
-<p>找了半天，看了半天也没有发现到底是那的错误，最后在StackOverFlow上面找到了答案，原来在iOS5中，如果你的项目支持ARC的话，那么你的property的名字不能以new开头。具体的原因在这里 <a href="http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html</a></p>
-<blockquote>
-<p>To allow interoperation with manual retain-release code, ARC imposes some constraints on method and variable naming:<br>You cannot give a property a name that begins with new.<br>悲催的bug，要谨记啊，一定要尽量的避免使用new这样的关键字作为变量的开头，说不定哪天就出现了问题。</p>
-</blockquote>
-
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARC/">ARC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objective-c/">objective-c</a></li></ul>
 
 			</span>
 		</div>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Share Your Passion To Light Your Dreams]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://little.cool/"/>
-  <updated>2014-11-20T09:53:53.057Z</updated>
+  <updated>2014-12-02T03:24:46.012Z</updated>
   <id>http://little.cool/</id>
   
   <author>
@@ -13,6 +13,51 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[namespaces in swift?]]></title>
+    <link href="http://little.cool/2014/12/01/namespaces-in-swift/"/>
+    <id>http://little.cool/2014/12/01/namespaces-in-swift/</id>
+    <published>2014-12-01T09:55:45.000Z</published>
+    <updated>2014-12-02T03:24:19.000Z</updated>
+    <content type="html"><![CDATA[<p>Objective-C 广泛被人诟病的一点就是没有 namespace 或者 module 的概念，而如果避免冲突的话只能靠给自己的类起个独特的名字来实现。</p>
+<blockquote>
+<p>Objective-C classes must be named uniquely not only within the code that you’re writing in a project, but also across any frameworks or bundles you might be including.</p>
+</blockquote>
+<p>当然啦，苹果也给出了自己的建议：</p>
+<blockquote>
+<p>In order to keep class names unique, the convention is to use prefixes on all classes. You’ll have noticed that Cocoa and Cocoa Touch class names typically start either with NS or UI. Two-letter prefixes like these are reserved by Apple for use in framework classes.<br>Your own classes should use three letter prefixes. These might relate to a combination of your company name and your app name, or even a specific component within your app</p>
+</blockquote>
+<p>也就说，你需要给自己的类名起一个独特的类名前缀，最好是三个或者四个大写字母，因为两个字母的是苹果自己保留的，你起得再好，也随时都可能被剥夺，如果和你的发生冲突的话，那么只能对不起啦，后果自负吧。</p>
+<p>当 Swift 发布之后，很多人发现依然没有类似 namespace , package 这样的关键字来定义 namespace 或者 module,但是是不是 Swift 就和 Objective-C 一样，还是要必须通过起一个独特的名字来避免命名冲突呢？Swift 的发明者 <strong><a href="http://en.wikipedia.org/wiki/Chris_Lattner" target="_blank" rel="external">Chris Lattner</a></strong> 在自己的 <a href="https://twitter.com/clattner_llvm/status/474730716941385729" target="_blank" rel="external">Twitter</a>给出了答案：</p>
+<blockquote>
+<p>Namespacing is implicit in swift, all classes (etc) are implicitly scoped by the module (Xcode target) they are in. no class prefixes needed</p>
+</blockquote>
+<p>也就是说在 Swift 中，没有显示的声明，而且 namespace 不是按照文件来区分的，而是按照 XCode 中 Target 的 <strong>Product Module Name </strong>名字来隐式的加以区别，其实这更像是 module 的概念。其实举一个很简单的例子，比如在我的 App 中，我有一个 class 的名字是 UIAlertView (当然这个例子很不恰当，但是却能说明问题), 而当我想使用 UIKit 中得 UIAlertView 的时候，我可以使用:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">UIkit</span></div><div class="line"><span class="keyword">let</span> alert = <span class="type">UIKit</span>.<span class="type">UIAlertView</span>(frame: frame)</div></pre></td></tr></table></figure>
+
+<p>而我要调用自己定义的 UIAlertView 的时候，可以直接使用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> myAlert = <span class="type">UIAlertView</span>()</div></pre></td></tr></table></figure>
+
+<p>这个时候并不冲突。其实这是一个很大的进步，而且会很有用处，比如我有两个库，一个叫 FrameworkA, 一个叫 FrameworkB, 它们之间唯一的区别就是  FrameworkB 是一个 mini 版的 FrameworkA,是在 FramworkA 的基础上做了一些删减，添加了少许的新功能。但是在我们项目中要根据服务器返回的数据不同使用不同的 Framework,而这个时候我们就可以通过调用 <strong><em>FrameworkA.test()</em></strong> 和 <strong><em>FrameworkB.test()</em></strong> 来调用不同的方法。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Objective-C 广泛被人诟病的一点就是没有 namespace 或者 module 的概念，而如果避免冲突的话只能靠给自己的类起个独特的名字来实现。</p>
+<blockquote>
+<p>Objective-C classes must be named uniq]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://little.cool/tags/iOS/"/>
+    
+      <category term="swift" scheme="http://little.cool/tags/swift/"/>
+    
+      <category term="namespace" scheme="http://little.cool/tags/namespace/"/>
+    
+      <category term="module" scheme="http://little.cool/tags/module/"/>
+    
+      <category term="Swift" scheme="http://little.cool/categories/Swift/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[RTCReporting block video on iOS simulator]]></title>
