@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Share Your Passion To Light Your Dreams]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://little.cool/"/>
-  <updated>2014-12-03T02:43:16.825Z</updated>
+  <updated>2015-10-29T09:25:42.340Z</updated>
   <id>http://little.cool/</id>
   
   <author>
@@ -13,6 +13,39 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[unrecognized selector sent to instance in swift]]></title>
+    <link href="http://little.cool/2015/05/29/unrecognized-selector-sent-to-instance-in-swift/"/>
+    <id>http://little.cool/2015/05/29/unrecognized-selector-sent-to-instance-in-swift/</id>
+    <published>2015-05-29T08:50:14.000Z</published>
+    <updated>2015-10-29T09:24:12.000Z</updated>
+    <content type="html"><![CDATA[<p>之前在用 <code>swift</code> 来写一个项目的时候遇到了这样的一个错误：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="number">2015</span>-<span class="number">03</span>-<span class="number">17</span> <span class="number">17</span>:<span class="number">25</span>:<span class="number">55.249</span> <span class="type">MyProject</span>[<span class="number">36665</span>:<span class="number">3189330</span>] *** <span class="type">Terminating</span> app due to uncaught exception '<span class="type">NSInvalidArgumentException'</span>, reason: '-[<span class="type">MyProject</span>.<span class="type">Demo</span> onRequestCompleted:]: unrecognized selector sent to instance <span class="number">0x7f9fd3df1d00</span>'</div><div class="line"> </div><div class="line">*** <span class="type">First</span> throw call stack:</div><div class="line"> </div><div class="line">(</div><div class="line"> </div><div class="line">    <span class="number">0</span>   <span class="type">CoreFoundation</span>                      <span class="number">0x0000000102b36c65</span> __exceptionPreprocess + <span class="number">165</span></div><div class="line"> </div><div class="line">    <span class="number">1</span>   libobjc.<span class="type">A</span>.dylib                     <span class="number">0x0000000105097bb7</span> objc_exception_throw + <span class="number">45</span></div><div class="line"> </div><div class="line">    <span class="number">2</span>   <span class="type">CoreFoundation</span>                      <span class="number">0x0000000102b3e0ad</span> -[<span class="type">NSObject</span>(<span class="type">NSObject</span>) doesNotRecognizeSelector:] + <span class="number">205</span></div><div class="line"> </div><div class="line">    <span class="number">3</span>   <span class="type">CoreFoundation</span>                      <span class="number">0x0000000102a9413c</span> ___forwarding___ + <span class="number">988</span></div><div class="line"> </div><div class="line">    <span class="number">4</span>   <span class="type">CoreFoundation</span>                      <span class="number">0x0000000102a93cd8</span> _CF_forwarding_prep_0 + <span class="number">120</span></div><div class="line"> </div><div class="line">    <span class="number">5</span>   <span class="type">CoreFoundation</span>                      <span class="number">0x0000000102b0654c</span> __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__ + <span class="number">12</span></div><div class="line"> </div><div class="line">    <span class="number">6</span>   <span class="type">CoreFoundation</span>                      <span class="number">0x0000000102a04a04</span> _CFXNotificationPost + <span class="number">2484</span></div><div class="line"> </div><div class="line">    <span class="number">7</span>   <span class="type">Foundation</span>                          <span class="number">0x00000001034ec968</span> -[<span class="type">NSNotificationCenter</span> postNotificationName:object:userInfo:] + <span class="number">66</span></div><div class="line"> ...</div><div class="line">)</div><div class="line"> </div><div class="line">libc++abi.dylib: terminating with uncaught exception of type <span class="type">NSException</span></div><div class="line"> </div><div class="line">(lldb)</div></pre></td></tr></table></figure>
+
+<p>根据以往的 <code>Objective-C</code>经验来看的话，这里是因为传递了错误的参数导致 <code>selector</code>没有被识别。而且在 <code>call stack</code> 中我们可以看到 :</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-[<span class="type">NSNotificationCenter</span> postNotificationName:object:userInfo:]</div></pre></td></tr></table></figure>
+
+<p>以此推断，是因为我们在使用 <code>NSNotificationCenter</code> 的 <code>addObserver</code> 方法时，传入的 <code>selector</code>有错误，很可能是因为我们把方法名字写错了，但是经过检查之后发现我们的代码没有错误：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>, selector: <span class="string">"onRequestCompleted:"</span>, name: <span class="type">MY_NOTIFICATION_REQUESTCOMPLETED</span>, object: context)</div><div class="line"><span class="comment">// the onRequestCompleted: method is in swift and like this:</span></div><div class="line">private <span class="func"><span class="keyword">func</span></span> onRequestCompleted(notification: <span class="type">NSNotification</span>) -&gt; <span class="type">Void</span>{</div><div class="line">    <span class="comment">// code here</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>百思不得其解只能求助文档和 Stackoverflow 了，因为这个错误太普遍，而且在 swift 中很多人还没有去踩坑。所以花了很长的时间才发现，原来在我们的<a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html" target="_blank" rel="external">文档</a>中有这样的一段：</p>
+<blockquote>
+<p>To be accessible and usable in Objective-C, a Swift class must be a descendant of an Objective-C class or it must be marked <code>@objc</code>.</p>
+<p>Swift declarations marked with the <code>private</code> modifier do not appear in the generated header. Private declarations are not exposed to Objective-C unless they are explicitly marked with <code>@IBAction</code>,<code>@IBOutlet</code>, or <code>@objc</code> as well.</p>
+</blockquote>
+<p>也就是说如果我们的 <code>Swift</code> 方法被 <code>Objective-C</code>所使用，那么这个 <code>Swift</code>类必须是继承自 <code>Objecitve-C</code>类，或者必须被标记成 <code>@objc</code>. 而 <code>Swift</code>中的 private 方法不会出现在生成的头文件中，所以这些私有的方法不会暴露给 <code>Objective-C</code> 除非被显示的标记为 <code>@IBAction</code> <code>@Iboutlet</code>或者<code>@objc</code></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>之前在用 <code>swift</code> 来写一个项目的时候遇到了这样的一个错误：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</]]>
+    </summary>
+    
+      <category term="swift" scheme="http://little.cool/tags/swift/"/>
+    
+      <category term="Swift" scheme="http://little.cool/categories/Swift/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[namespaces in swift?]]></title>
